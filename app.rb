@@ -22,9 +22,9 @@ end
 
 
 require_relative 'app'
-require_relative './models/motivational_quote'
-require_relative './models/task'
-require_relative './models/user'
+# require_relative './models/motivational_quote'
+# require_relative './models/task'
+# require_relative './models/user'
 
 # enable sessions for this project
 enable :sessions

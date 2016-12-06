@@ -14,9 +14,6 @@ configure :development do
   Dotenv.load
 end
 
-
-
-
 # require any models 
 # you add to the folder
 # using the following syntax:
@@ -163,7 +160,7 @@ end
 # ----------------------------------------------------------------------
 #     OUTGOING WEBHOOK
 # ----------------------------------------------------------------------
-post "/outgoing/" do
+post "/botbarbello_outgoing/" do
    content_type :json
    {text: "Hi! I'm BotBarbello. I'm here to empower you with a new high energy body-building workout video everyday! Building a stronger you is my life's only goal.", response_type: "in channel" }.to_json
 end

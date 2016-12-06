@@ -64,6 +64,38 @@ end
 #     SLASH COMMANDS
 # ----------------------------------------------------------------------
 
+post "/workout"  do
+  
+  puts params.to_s
+
+  slack_token = "X5Xu7haqc2oBLZLSZBhs8hIS"
+
+  if slack_token == params[:token]
+    
+    channel_name = params[:channel_name]
+    user_name = params[:user_name]
+    text = params[:text]
+    response_url = params[:response_url]
+
+    
+    greeting = ["Hey dude!", "Hey man!", "Hey brother!", "It's great to see you bro!"]
+    
+    random = DumbbellExercise.all.sample(1).first
+    formatted_message = greeting.sample + " I've been asked to get a #{text} workout"
+
+    content_type :json
+  
+    {text: formatted_message, response_type: "in_channel" }.to_json
+
+  else
+    content_type :json
+    {text: "Invalid Request", response_type: "ephemeral" }.to_json
+
+  end
+  
+  
+end
+
 post "/dumbbell_slash_cmd/" do
 
   puts params.to_s
@@ -77,6 +109,14 @@ post "/dumbbell_slash_cmd/" do
     text = params[:text]
     response_url = params[:response_url]
 
+
+    if text.downcase.strip == "cardio"
+      # send back a cardio workout
+    elsif text.downcase.strip == "barbell"
+      # ...
+      # ...
+      # ..
+    end  
     
     greeting = ["Hey dude!", "Hey man!", "Hey brother!", "It's great to see you bro!"]
     
@@ -222,3 +262,22 @@ end
 #   response
 #
 # end
+
+
+# -----------------------------------------------------------------
+#     TO DO
+# -----------------------------------------------------------------
+
+# Connect to YouTube API to retrieve workout video URLs based on keywords entered
+
+# Connect to Slack API to  to improve efficiency of outgoing webhooks 
+
+# Add custom integrations to a slack app
+
+# Add outgoing webhooks to retrieve specific workout videos from the database
+
+# Restrict to certain YouTube Channel
+
+# Male or female? settings
+
+# Microformating in slack

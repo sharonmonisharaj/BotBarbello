@@ -108,5 +108,11 @@ CardioExercise.create!([{
 
 p "Created #{CardioExercise.count} cardio exercises!"
 
-
 # -----------------------------------------------------------------
+
+
+
+
+
+
+

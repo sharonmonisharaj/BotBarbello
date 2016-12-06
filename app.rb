@@ -68,7 +68,7 @@ post "/workout"  do
   
   puts params.to_s
 
-  slack_token = "X5Xu7haqc2oBLZLSZBhs8hIS"
+  slack_token = "Upm2rHVBhulKzKd3MsKYP8Cz"
 
   if slack_token == params[:token]
     

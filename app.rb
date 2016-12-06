@@ -80,24 +80,24 @@ post "/workout"  do
     
     greeting = ["Hey dude!", "Hey man!", "Hey brother!", "It's great to see you bro!"]
     
-     if text.downcase.strip == "dumbbell"{
+     if text.downcase.strip == "dumbbell"
        random = DumbbellExercise.all.sample(1).first
        formatted_message = greeting.sample + " I've been asked to get a #{text} workout"
-     }
      
-     elsif text.downcase.strip == "barbell"{
+     
+     elsif text.downcase.strip == "barbell"
        random = BarbellExercise.all.sample(1).first
        formatted_message = greeting.sample + " I've been asked to get a #{text} workout"
-     }
+    
      
-     elsif text.downcase.strip == "cardio"{
+     elsif text.downcase.strip == "cardio"
        random = CardioExercise.all.sample(1).first
        formatted_message = greeting.sample + " I've been asked to get a #{text} workout"
-     }  
+       
      
-   else {
+   else 
      "I'm sorry, it looks like I can't help you with that at the moment. Please enter one of the following\n\n/workout dumbbell\n/workout barbell\n/workout cardio"
-   }
+   
 
     content_type :json
   

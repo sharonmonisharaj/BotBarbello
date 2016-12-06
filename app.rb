@@ -129,8 +129,10 @@ post "/dumbbell_slash_cmd/" do
     
     #formatted_message = "@#{user_name} said:\n" + text.to_s 
     
+    greeting = ["Hey dude!", "Hey man!", "Hey brother!", "It's great to see you bro!"]
+    
     random = DumbbellExercise.all.sample(1).first
-    formatted_message = random.dumbbell
+    formatted_message = greeting.random + " Here's your new dumbbell workout video!\n" + random.name + "\n" + random.dumbbell
     
     #formatted_message = "You're the best!!!"
         

@@ -7,4 +7,6 @@ class NewCardioExercisesTable < ActiveRecord::Migration[5.0]
     t.string :cardio
     
   end
+    
+  end
 end

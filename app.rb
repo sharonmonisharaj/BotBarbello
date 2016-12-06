@@ -93,11 +93,10 @@ post "/workout"  do
      elsif text.downcase.strip == "cardio"
        random = CardioExercise.all.sample(1).first
        formatted_message = greeting.sample + " I've been asked to get a #{text} workout"
-       
-     
+  
    else 
      "I'm sorry, it looks like I can't help you with that at the moment. Please enter one of the following\n\n/workout dumbbell\n/workout barbell\n/workout cardio"
-   
+   end
 
     content_type :json
   
@@ -108,8 +107,6 @@ post "/workout"  do
     {text: "Invalid Request", response_type: "ephemeral" }.to_json
 
   end
-  
-  
 end
 
 post "/dumbbell_slash_cmd/" do

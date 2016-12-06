@@ -67,18 +67,18 @@ BarbellExercise.delete_all
 #MotivationalQuote.reset_autoincrement
 
 BarbellExercise.create!([{
-  name: "Dumbbell Biceps Curl",
-  barbell: "https://www.youtube.com/watch?v=ykJmrZ5v0Oo"
+  name: "Deep Barbell Back Squat",
+  barbell: "https://www.youtube.com/watch?v=SW_C1A-rejs"
 },
 
 {
-  name: "Seated Overhead Dumbbell Press",
-  barbell: "https://www.youtube.com/watch?v=b5JzUH8gsOg"
+  name: "Barbell Front Squat",
+  barbell: "https://www.youtube.com/watch?v=tlfahNdNPPI"
 },
 
 {
-  name: "Dumbbell Row",
-  barbell: "https://www.youtube.com/watch?v=-koP10y1qZI"
+  name: "Deadlift",
+  barbell: "https://www.youtube.com/watch?v=RyJbvWAh6ec"
 }])
 
 p "Created #{BarbellExercise.count} barbell exercises!"
@@ -92,18 +92,18 @@ CardioExercise.delete_all
 #MotivationalQuote.reset_autoincrement
 
 CardioExercise.create!([{
-  name: "Dumbbell Biceps Curl",
-  cardio: "https://www.youtube.com/watch?v=ykJmrZ5v0Oo"
+  name: "High Intensity Cardio Workout for Lean Muscle",
+  cardio: "https://www.youtube.com/watch?v=LkCZPvKLeBM"
 },
 
 {
-  name: "Seated Overhead Dumbbell Press",
-  cardio: "https://www.youtube.com/watch?v=b5JzUH8gsOg"
+  name: "33 Min High Intensity Interval Training for Endurance & Total Body Toning",
+  cardio: "https://www.youtube.com/watch?v=H1GDPNYTpqA"
 },
 
 {
-  name: "Dumbbell Row",
-  cardio: "https://www.youtube.com/watch?v=-koP10y1qZI"
+  name: "HIIT Ladder Workout",
+  cardio: "https://www.youtube.com/watch?v=cZnsLVArIt8"
 }])
 
 p "Created #{CardioExercise.count} cardio exercises!"

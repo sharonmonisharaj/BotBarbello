@@ -113,7 +113,7 @@ post "/barbell_slash_cmd/" do
     
     greeting = ["Hey dude!", "Hey man!", "Hey brother!", "It's great to see you bro!"]
     
-    random = DumbbellExercise.all.sample(1).first
+    random = BarbellExercise.all.sample(1).first
     formatted_message = greeting.sample + " Here's your new barbell workout video!\n\n" + Rainbow(random.name).underline + "\n" + random.barbell
 
     content_type :json
@@ -146,7 +146,7 @@ post "/cardio_slash_cmd/" do
     
     greeting = ["Hey dude!", "Hey man!", "Hey brother!", "It's great to see you bro!"]
     
-    random = DumbbellExercise.all.sample(1).first
+    random = CardioExercise.all.sample(1).first
     formatted_message = greeting.sample + " Here's your new cardio workout video!\n\n" + Rainbow(random.name).underline + "\n" + random.cardio
 
     content_type :json

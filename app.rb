@@ -109,13 +109,60 @@ post "/handle_echo_slash_cmd/" do
 
 end
 
+# ----------------------------------------------------------------------
+
+post "/dumbbell_slash_cmd/" do
+
+
+  puts params.to_s
+
+  # this should be in a .env
+  slack_token = "X5Xu7haqc2oBLZLSZBhs8hIS"
+
+  # check it's valid
+  if slack_token == params[:token]
+    
+    channel_name = params[:channel_name]
+    user_name = params[:user_name]
+    text = params[:text]
+    response_url = params[:response_url]
+    
+    #formatted_message = "@#{user_name} said:\n" + text.to_s 
+    
+    random = DumbbellExercise.all.sample(1).first
+    formatted_message = random.quote
+    
+    #formatted_message = "You're the best!!!"
+        
+    #echo_slack_request response_url, channel_name, user_name, text
+    #{text: formatted_message, response_type: "in_channel" }.to_json
+
+    # specify the return type as 
+    # json
+    content_type :json
+    
+    # When the response_type is in_channel, both the response message and the initial message typed by the user will be shared in the channel. 
+
+    # Setting response_type to ephemeral is the same as not including the response type at all, and the response message will be visible only to the user that issued the command. For the best clarity of intent, we recommend always declaring your intended response_type.
+
+    {text: formatted_message, response_type: "in_channel" }.to_json
+    
+    
+  else
+    content_type :json
+    {text: "Invalid Request", response_type: "ephemeral" }.to_json
+
+  end
+
+end
+
 
 # ----------------------------------------------------------------------
 #     OUTGOING WEBHOOK
 # ----------------------------------------------------------------------
 post "/outgoing/" do
    content_type :json
-   {text: "Hi! I'm MotivaBot. I'm here to inspire and motivate you with inspirational quotes from legendary personalities. Type /motivate and I will give you a motivational quote! I will also motivate you with a great quote at 9 am every day!", response_type: "in channel" }.to_json
+   {text: "Hi! I'm BotBarbello. I'm here to empower you with a new high energy body-building workout video everyday! Building a stronger you is my life's only goal.", response_type: "in channel" }.to_json
 end
 
 # ----------------------------------------------------------------------

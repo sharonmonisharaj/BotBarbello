@@ -4,6 +4,7 @@ require 'sinatra/activerecord'
 require 'rake'
 require 'slack-ruby-client'
 require 'httparty'
+require 'rainbow'
 # ----------------------------------------------------------------------
 
 # Load environment variables using Dotenv. If a .env file exists, it will

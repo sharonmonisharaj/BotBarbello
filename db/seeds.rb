@@ -61,3 +61,52 @@ p "Created #{DumbbellExercise.count} dumbbell exercises!"
 
 
 # -----------------------------------------------------------------
+
+BarbellExercise.delete_all
+
+#MotivationalQuote.reset_autoincrement
+
+BarbellExercise.create!([{
+  name: "Dumbbell Biceps Curl",
+  barbell: "https://www.youtube.com/watch?v=ykJmrZ5v0Oo"
+},
+
+{
+  name: "Seated Overhead Dumbbell Press",
+  barbell: "https://www.youtube.com/watch?v=b5JzUH8gsOg"
+},
+
+{
+  name: "Dumbbell Row",
+  barbell: "https://www.youtube.com/watch?v=-koP10y1qZI"
+}])
+
+p "Created #{BarbellExercise.count} barbell exercises!"
+
+
+# -----------------------------------------------------------------
+
+
+CardioExercise.delete_all
+
+#MotivationalQuote.reset_autoincrement
+
+CardioExercise.create!([{
+  name: "Dumbbell Biceps Curl",
+  cardio: "https://www.youtube.com/watch?v=ykJmrZ5v0Oo"
+},
+
+{
+  name: "Seated Overhead Dumbbell Press",
+  cardio: "https://www.youtube.com/watch?v=b5JzUH8gsOg"
+},
+
+{
+  name: "Dumbbell Row",
+  cardio: "https://www.youtube.com/watch?v=-koP10y1qZI"
+}])
+
+p "Created #{CardioExercise.count} cardio exercises!"
+
+
+# -----------------------------------------------------------------

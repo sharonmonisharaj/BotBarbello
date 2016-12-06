@@ -34,7 +34,7 @@ get "/" do
   401
 end
 
-
+# ----------------------------------------------------------------------
 
 get "/login/:user" do 
   
@@ -43,7 +43,6 @@ get "/login/:user" do
   send_slack_request "Good news\n #{params[:user]} just signed into the app.", ["https://github.com/daraghbyrne"]
   
 end 
-
 
 # check for token = 2JWqGx57O5oZXPCye5cOX4kz
 
@@ -59,46 +58,33 @@ end
 # text=94070
 # response_url=https://hooks.slack.com/commands/1234/5678
 
-# sample cURL request for incoming webhook to be entered in the Terminal
-# curl -X POST --data-urlencode 'payload={"channel": "#general", "username": "MotivaBot", "text": "This is posted to #general and comes from a bot named MotivaBot."}' https://hooks.slack.com/services/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
+# ----------------------------------------------------------------------
+#     SLASH COMMANDS
+# ----------------------------------------------------------------------
 
-post "/handle_echo_slash_cmd/" do
-
+post "/dumbbell_slash_cmd/" do
 
   puts params.to_s
 
-  # this should be in a .env
-  slack_token = "YViiD19u9idrtQkfozXMriDc"
+  slack_token = "X5Xu7haqc2oBLZLSZBhs8hIS"
 
-  # check it's valid
   if slack_token == params[:token]
     
     channel_name = params[:channel_name]
     user_name = params[:user_name]
     text = params[:text]
     response_url = params[:response_url]
-    
-    #formatted_message = "@#{user_name} said:\n" + text.to_s 
-    
-    random = MotivationalQuote.all.sample(1).first
-    formatted_message = random.quote
-    
-    #formatted_message = "You're the best!!!"
-        
-    #echo_slack_request response_url, channel_name, user_name, text
-    #{text: formatted_message, response_type: "in_channel" }.to_json
 
-    # specify the return type as 
-    # json
+    
+    greeting = ["Hey dude!", "Hey man!", "Hey brother!", "It's great to see you bro!"]
+    
+    random = DumbbellExercise.all.sample(1).first
+    formatted_message = greeting.sample + " Here's your new dumbbell workout video!\n\n" + Rainbow(random.name).underline + "\n" + random.dumbbell
+
     content_type :json
-    
-    # When the response_type is in_channel, both the response message and the initial message typed by the user will be shared in the channel. 
-
-    # Setting response_type to ephemeral is the same as not including the response type at all, and the response message will be visible only to the user that issued the command. For the best clarity of intent, we recommend always declaring your intended response_type.
-
+  
     {text: formatted_message, response_type: "in_channel" }.to_json
-    
-    
+
   else
     content_type :json
     {text: "Invalid Request", response_type: "ephemeral" }.to_json
@@ -109,45 +95,29 @@ end
 
 # ----------------------------------------------------------------------
 
-post "/dumbbell_slash_cmd/" do
-
+post "/barbell_slash_cmd/" do
 
   puts params.to_s
 
-  # this should be in a .env
-  slack_token = "X5Xu7haqc2oBLZLSZBhs8hIS"
+  slack_token = "4hJ7uwXro4ChP43cUV6LJc1W"
 
-  # check it's valid
   if slack_token == params[:token]
     
     channel_name = params[:channel_name]
     user_name = params[:user_name]
     text = params[:text]
     response_url = params[:response_url]
-    
-    #formatted_message = "@#{user_name} said:\n" + text.to_s 
+
     
     greeting = ["Hey dude!", "Hey man!", "Hey brother!", "It's great to see you bro!"]
     
     random = DumbbellExercise.all.sample(1).first
-    formatted_message = greeting.sample + " Here's your new dumbbell workout video!\n\n" + Rainbow(random.name).underline + "\n" + random.dumbbell
-    
-    #formatted_message = "You're the best!!!"
-        
-    #echo_slack_request response_url, channel_name, user_name, text
-    #{text: formatted_message, response_type: "in_channel" }.to_json
+    formatted_message = greeting.sample + " Here's your new barbell workout video!\n\n" + Rainbow(random.name).underline + "\n" + random.barbell
 
-    # specify the return type as 
-    # json
     content_type :json
-    
-    # When the response_type is in_channel, both the response message and the initial message typed by the user will be shared in the channel. 
-
-    # Setting response_type to ephemeral is the same as not including the response type at all, and the response message will be visible only to the user that issued the command. For the best clarity of intent, we recommend always declaring your intended response_type.
-
+  
     {text: formatted_message, response_type: "in_channel" }.to_json
-    
-    
+
   else
     content_type :json
     {text: "Invalid Request", response_type: "ephemeral" }.to_json
@@ -156,13 +126,45 @@ post "/dumbbell_slash_cmd/" do
 
 end
 
+# ----------------------------------------------------------------------
+
+post "/cardio_slash_cmd/" do
+
+  puts params.to_s
+
+  slack_token = "QRguIojaAvbSaXaK5IYFcuCC"
+
+  if slack_token == params[:token]
+    
+    channel_name = params[:channel_name]
+    user_name = params[:user_name]
+    text = params[:text]
+    response_url = params[:response_url]
+
+    
+    greeting = ["Hey dude!", "Hey man!", "Hey brother!", "It's great to see you bro!"]
+    
+    random = DumbbellExercise.all.sample(1).first
+    formatted_message = greeting.sample + " Here's your new cardio workout video!\n\n" + Rainbow(random.name).underline + "\n" + random.cardio
+
+    content_type :json
+  
+    {text: formatted_message, response_type: "in_channel" }.to_json
+
+  else
+    content_type :json
+    {text: "Invalid Request", response_type: "ephemeral" }.to_json
+
+  end
+
+end
 
 # ----------------------------------------------------------------------
 #     OUTGOING WEBHOOK
 # ----------------------------------------------------------------------
 post "/botbarbello_outgoing/" do
    content_type :json
-   {text: "Hi! I'm BotBarbello. I'm here to empower you with a new high energy body-building workout video everyday! Building a stronger you is my life's only goal.\n\nHere's how you can make the best use of me with slash commands:\n\nSimply type any of the following into a channel of your choice:\n\n/dumbbell\n/barbell\n/cardio\n/abs\n\nFor help, simply type the work help.", response_type: "in channel" }.to_json
+   {text: "Hi! I'm BotBarbello. I'm here to empower you with a new high energy body-building workout video everyday! Building a stronger you is my life's only goal.\n\nHere's how you can make the best use of me with slash commands:\n\nSimply type any of the following into a channel of your choice:\n\n/dumbbell\n/barbell\n/cardio\n/abs\n\nFor help, simply type the word 'help'.", response_type: "in channel" }.to_json
 end
 
 # ----------------------------------------------------------------------

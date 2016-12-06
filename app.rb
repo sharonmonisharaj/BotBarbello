@@ -130,7 +130,7 @@ post "/dumbbell_slash_cmd/" do
     #formatted_message = "@#{user_name} said:\n" + text.to_s 
     
     random = DumbbellExercise.all.sample(1).first
-    formatted_message = random.quote
+    formatted_message = random.dumbbell
     
     #formatted_message = "You're the best!!!"
         

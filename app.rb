@@ -21,6 +21,8 @@ end
 
 require_relative 'app'
 require_relative './models/dumbbell_exercise'
+require_relative './models/barbell_exercise'
+require_relative './models/cardio_exercise'
 
 
 # enable sessions for this project

@@ -61,6 +61,60 @@ end
 # response_url=https://hooks.slack.com/commands/1234/5678
 
 # ----------------------------------------------------------------------
+
+get "/oauth" do 
+  
+  code = params[ :code ]
+  
+  slack_oauth_request = "https://slack.com/api/oauth.access"
+  
+  if code 
+    response = HTTParty.post slack_oauth_request, body: {client_id: ENV['SLACK_CLIENT_ID'], client_secret: ENV['SLACK_CLIENT_SECRET'], code: code}
+    
+    puts response.to_s
+    
+    # We can extract lots of information from this web hook... 
+    
+    access_token = response["access_token"]
+    team_name = response["team_name"]
+    team_id = response["team_id"]
+    user_id = response["user_id"]
+        
+    incoming_channel = response['incoming_webhook']['channel']
+    incoming_channel_id = response['incoming_webhook']['channel_id']
+    incoming_config_url = response['incoming_webhook']['configuration_url']
+    incoming_url = response['incoming_webhook']['url']
+    
+    bot_user_id = response['bot']['bot_user_id']
+    bot_access_token = response['bot']['bot_access_token']
+    
+    # wouldn't it be useful if we could store this? 
+    # we can... 
+    
+    team = Team.find_or_create_by( team_id: team_id, user_id: user_id )
+    team.access_token = access_token
+    team.team_name = team_name
+    team.raw_json = response.to_s
+    team.incoming_channel = incoming_channel
+    team.incoming_webhook = incoming_url
+    team.bot_token = bot_access_token
+    team.bot_user_id = bot_user_id
+    team.save
+    
+    # finally respond... 
+    "CourseBot Slack App successfully installed!"
+    
+  else
+    401
+  end
+  
+end
+
+# If successful this will give us something like this:
+# {"ok"=>true, "access_token"=>"xoxp-92618588033-92603015268-110199165062-deab8ccb6e1d119caaa1b3f2c3e7d690", "scope"=>"identify,bot,commands,incoming-webhook", "user_id"=>"U2QHR0F7W", "team_name"=>"Programming for Online Prototypes", "team_id"=>"T2QJ6HA0Z", "incoming_webhook"=>{"channel"=>"bot-testing", "channel_id"=>"G36QREX9P", "configuration_url"=>"https://onlineprototypes2016.slack.com/services/B385V4V8E", "url"=>"https://hooks.slack.com/services/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"}, "bot"=>{"bot_user_id"=>"U37HMQRS8", "bot_access_token"=>"xoxb-109599841892-oTaxqITzZ8fUSdmMDxl5kraO"}
+
+
+# ----------------------------------------------------------------------
 #     SLASH COMMANDS
 # ----------------------------------------------------------------------
 

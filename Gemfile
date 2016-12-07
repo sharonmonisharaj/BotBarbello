@@ -10,6 +10,7 @@ gem 'sinatra-activerecord' # excellent gem that ports ActiveRecord for Sinatra
 gem 'slack-ruby-client'
 gem 'httparty'
 gem 'rainbow'
+gem 'haml'
 
 # to avoid installing postgres use 
 # bundle install --without production

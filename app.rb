@@ -5,6 +5,8 @@ require 'rake'
 require 'slack-ruby-client'
 require 'httparty'
 require 'rainbow'
+require 'haml'
+
 # ----------------------------------------------------------------------
 
 # Load environment variables using Dotenv. If a .env file exists, it will
@@ -33,8 +35,17 @@ enable :sessions
 # ----------------------------------------------------------------------
 
 get "/" do
-  401
+  haml :index
 end
+
+get "/privacy" do
+  "Privacy Statement"
+end
+
+get "/about" do
+  "About this app"
+end
+
 
 # ----------------------------------------------------------------------
 

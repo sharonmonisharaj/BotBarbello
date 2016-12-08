@@ -823,11 +823,63 @@ def respond_to_slack_event json
   
   # Hi Commands
   if ["hi", "hey", "hello"].any? { |w| event.formatted_text.starts_with? w }
-    client.chat_postMessage(channel: event.channel, text: "Hi I'm BotBabello. I'm here to help.", as_user: true)
+    
+    hello_text = 
+content_type :json
+{
+    "text": "Hey bro!",
+    "attachments": [
+        {
+            "text": "How would you like to go about your workout today?",
+            "fallback": "You are unable to choose a game",
+            "callback_id": "wopr_game",
+            "color": "#3AA3E3",
+            "attachment_type": "default",
+            "actions": [
+                {
+                    "name": "body_part",
+                    "text": "Body Part",
+                    "type": "button",
+                    "value": "body_part"
+                },
+                {
+                    "name": "equipment",
+                    "text": "Equipment",
+                    "type": "button",
+                    "value": "equipment"
+                },
+                {
+                    "name": "workout_type",
+                    "text": "Workout Type",
+                    "type": "button",
+                    "value": "workout_type"
+                },
+                {
+                    "name": "war",
+                    "text": "You decide!",
+                    "style": "danger",
+                    "type": "button",
+                    "value": "war",
+                    "confirm": {
+                        "title": "I'd be happy to pick for you bro!",
+                        "text": "Don't you have anything in mind though?",
+                        "ok_text": "Yes",
+                        "dismiss_text": "No"
+                    }
+            
+                }
+            ]
+        }
+    ]
+}.to_json
+    
+    client.chat_postMessage(channel: event.channel, text: hello_text.to_s, as_user: true)
 
     # Handle the Help commands
   elsif event.formatted_text.include? "help"
     client.chat_postMessage(channel: event.channel, text: get_commands_message( is_admin ), as_user: true)
+
+  
 
   end 
   

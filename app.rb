@@ -27,6 +27,9 @@ require_relative './models/barbell_exercise'
 require_relative './models/cardio_exercise'
 require_relative './models/bodybuilder_quote'
 require_relative './models/beforeafter'
+require_relative './models/body_part'
+require_relative './models/equipment'
+require_relative './models/workout_type'
 
 
 # enable sessions for this project

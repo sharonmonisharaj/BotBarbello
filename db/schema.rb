@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208153907) do
+ActiveRecord::Schema.define(version: 20161208154327) do
 
   create_table "barbell_exercises", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,12 @@ ActiveRecord::Schema.define(version: 20161208153907) do
   end
 
   create_table "beforeafter_stories", force: :cascade do |t|
+    t.string "name"
+    t.text   "story"
+    t.string "photo_url"
+  end
+
+  create_table "beforeafters", force: :cascade do |t|
     t.string "name"
     t.text   "story"
     t.string "photo_url"

@@ -360,7 +360,7 @@ content_type :json
                 },
                 {
                     "name": "war",
-                    "text": "You pick!",
+                    "text": "You decide!",
                     "style": "danger",
                     "type": "button",
                     "value": "war",
@@ -381,16 +381,13 @@ end
 # # ----------------------------------------------------------------------
 
 post "/body_part/" do
-#    content_type :json
-#    {text: "Hi! I'm BotBarbello. I'm here to empower you with a new high energy body-building workout video everyday! Building a stronger you is my life's only goal.\n\nHere's how you can make the best use of me with slash commands:\n\nSimply type any of the following into a channel of your choice:\n\n/dumbbell\n/barbell\n/cardio\n/abs\n\nFor help, simply type the word 'help'.", response_type: "in channel" }.to_json
-# end
 
 content_type :json
 {
     "text": "Hey bro!",
     "attachments": [
         {
-            "text": "How would you like to go about your workout today?",
+            "text": "Which body part would you like to target?",
             "fallback": "You are unable to choose a game",
             "callback_id": "wopr_game",
             "color": "#3AA3E3",
@@ -440,7 +437,171 @@ content_type :json
                 },
                 {
                     "name": "war",
-                    "text": "You pick!",
+                    "text": "You decide!",
+                    "style": "danger",
+                    "type": "button",
+                    "value": "war",
+                    "confirm": {
+                        "title": "I'd be happy to pick for you bro!",
+                        "text": "Don't you have anything in mind though?",
+                        "ok_text": "Yes",
+                        "dismiss_text": "No"
+                    }
+                }
+            ]
+        }
+    ]
+}.to_json
+end
+
+# # ----------------------------------------------------------------------
+
+post "/equipment/" do
+
+content_type :json
+{
+    "text": "Hey bro!",
+    "attachments": [
+        {
+            "text": "What equipment would you like to use?",
+            "fallback": "You are unable to choose a game",
+            "callback_id": "wopr_game",
+            "color": "#3AA3E3",
+            "attachment_type": "default",
+            "actions": [
+                {
+                    "name": "dumbbells",
+                    "text": "Dumbbells",
+                    "type": "button",
+                    "value": "dumbbells"
+                },
+                {
+                    "name": "kettle_bell",
+                    "text": "Kettle Bell",
+                    "type": "button",
+                    "value": "kettle_bell"
+                },
+                {
+                    "name": "barbell",
+                    "text": "Barbell",
+                    "type": "button",
+                    "value": "barbell"
+                },
+                {
+                    "name": "pull_up_bar",
+                    "text": "Pull Up Bar",
+                    "type": "button",
+                    "value": "pull_up_bar"
+                },
+                {
+                    "name": "rings",
+                    "text": "Rings",
+                    "type": "button",
+                    "value": "rings"
+                },
+                {
+                    "name": "jump_rope",
+                    "text": "Jump Rope",
+                    "type": "button",
+                    "value": "jump_rope"
+                },
+                {
+                    "name": "plyo_box",
+                    "text": "Plyo Box",
+                    "type": "button",
+                    "value": "plyo_box"
+                },
+                {
+                    "name": "stability_ball",
+                    "text": "Stability Ball",
+                    "type": "button",
+                    "value": "stability_ball"
+                },
+                {
+                    "name": "medicine_ball",
+                    "text": "Medicine Ball",
+                    "type": "button",
+                    "value": "medicine_ball"
+                },
+                {
+                    "name": "bosu_ball",
+                    "text": "Bosu Ball",
+                    "type": "button",
+                    "value": "bosu_ball"
+                },
+                {
+                    "name": "war",
+                    "text": "You decide!",
+                    "style": "danger",
+                    "type": "button",
+                    "value": "war",
+                    "confirm": {
+                        "title": "I'd be happy to pick for you bro!",
+                        "text": "Don't you have anything in mind though?",
+                        "ok_text": "Yes",
+                        "dismiss_text": "No"
+                    }
+                }
+            ]
+        }
+    ]
+}.to_json
+end
+
+# # ----------------------------------------------------------------------
+
+post "/workout_type/" do
+
+content_type :json
+{
+    "text": "Hey bro!",
+    "attachments": [
+        {
+            "text": "What workout type are you in the mood for?",
+            "fallback": "You are unable to choose a game",
+            "callback_id": "wopr_game",
+            "color": "#3AA3E3",
+            "attachment_type": "default",
+            "actions": [
+                {
+                    "name": "hiit",
+                    "text": "HIIT",
+                    "type": "button",
+                    "value": "hiit"
+                },
+                {
+                    "name": "pilates",
+                    "text": "Pilates",
+                    "type": "button",
+                    "value": "pilates"
+                },
+                {
+                    "name": "yoga",
+                    "text": "Yoga",
+                    "type": "button",
+                    "value": "yoga"
+                },
+                {
+                    "name": "tai_chi",
+                    "text": "Tai Chi",
+                    "type": "button",
+                    "value": "tai_chi"
+                },
+                {
+                    "name": "zumba",
+                    "text": "Zumba",
+                    "type": "button",
+                    "value": "zumba"
+                },
+                {
+                    "name": "aerobics",
+                    "text": "Aerobics",
+                    "type": "button",
+                    "value": "aerobics"
+                },
+                {
+                    "name": "war",
+                    "text": "You decide!",
                     "style": "danger",
                     "type": "button",
                     "value": "war",

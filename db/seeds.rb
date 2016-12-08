@@ -241,6 +241,171 @@ p "Created #{Beforeafter.count} before-and-after stories!"
 
 # -----------------------------------------------------------------
 
+BodyPart.delete_all
+
+#MotivationalQuote.reset_autoincrement
+
+BodyPart.create!([{
+  body_part: "Shoulders",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  body_part: "Chest",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  body_part: "Back",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  body_part: "Abs",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  body_part: "Arms",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  body_part: "Glutes",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  body_part: "Legs",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+}])
+
+p "Created #{BodyPart.count} body-part targetted exercises!"
+
+
+# -----------------------------------------------------------------
+
+Equipment.delete_all
+
+#MotivationalQuote.reset_autoincrement
+
+Equipment.create!([{
+  equipment: "Dumbbells",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  equipment: "Kettle Bell",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  equipment: "Barbell",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  equipment: "Pull Up Bar",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  equipment: "Rings",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  equipment: "Jump Rope",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  equipment: "Plyo-Box",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  equipment: "Medicine Ball",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  equipment: "Stability Ball",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  equipment: "BOSU Ball",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+}])
+
+p "Created #{Equipment.count} body-part targetted exercises!"
+
+
+# -----------------------------------------------------------------
+
+WorkoutType.delete_all
+
+#MotivationalQuote.reset_autoincrement
+
+WorkoutType.create!([{
+  equipment: "HIIT",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  equipment: "Yoga",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  equipment: "Pilates",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  equipment: "Tai Chi",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  equipment: "Zumba",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+},
+
+{
+  equipment: "Aerobics",
+  workout_name: "Lorem ipsum"
+  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+}])
+
+p "Created #{WorkoutType.count} body-part targetted exercises!"
+
+
+# -----------------------------------------------------------------
+
 
 
 

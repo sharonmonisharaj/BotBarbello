@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208154327) do
+ActiveRecord::Schema.define(version: 20161208155233) do
 
   create_table "barbell_exercises", force: :cascade do |t|
     t.string "name"
@@ -29,6 +29,12 @@ ActiveRecord::Schema.define(version: 20161208154327) do
     t.string "photo_url"
   end
 
+  create_table "body_parts", force: :cascade do |t|
+    t.string "body_part"
+    t.string "workout_name"
+    t.string "url"
+  end
+
   create_table "bodybuilder_quotes", force: :cascade do |t|
     t.string "name"
     t.text   "quote"
@@ -45,6 +51,12 @@ ActiveRecord::Schema.define(version: 20161208154327) do
     t.string "name"
   end
 
+  create_table "equipments", force: :cascade do |t|
+    t.string "equipment"
+    t.string "workout_name"
+    t.string "url"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string  "access_token"
     t.string  "team_name"
@@ -56,6 +68,12 @@ ActiveRecord::Schema.define(version: 20161208154327) do
     t.string  "bot_token"
     t.string  "bot_user_id"
     t.boolean "is_active",        default: true
+  end
+
+  create_table "workout_types", force: :cascade do |t|
+    t.string "workout_type"
+    t.string "workout_name"
+    t.string "url"
   end
 
 end

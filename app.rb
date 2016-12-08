@@ -326,36 +326,66 @@ post "/outgoing/" do
 
 content_type :json
 {
-    "text": "Would you like to play a game?",
+    "text": "What's your focus today?",
     "attachments": [
         {
-            "text": "Choose a game to play",
+            "text": "What's your focus today?",
             "fallback": "You are unable to choose a game",
             "callback_id": "wopr_game",
             "color": "#3AA3E3",
             "attachment_type": "default",
             "actions": [
                 {
-                    "name": "chess",
-                    "text": "Chess",
+                    "name": "shoulders",
+                    "text": "Shoulders",
                     "type": "button",
-                    "value": "chess"
+                    "value": "shoulders"
                 },
                 {
-                    "name": "maze",
-                    "text": "Falken's Maze",
+                    "name": "chest",
+                    "text": "Chest",
                     "type": "button",
-                    "value": "maze"
+                    "value": "chest"
+                },
+                {
+                    "name": "back",
+                    "text": "Back",
+                    "type": "button",
+                    "value": "back"
+                },
+                {
+                    "name": "abs",
+                    "text": "Abs",
+                    "type": "button",
+                    "value": "abs"
+                },
+                {
+                    "name": "glutes",
+                    "text": "Glutes",
+                    "type": "button",
+                    "value": "glutes"
+                },
+                {
+                    "name": "arms",
+                    "text": "Arms",
+                    "type": "button",
+                    "value": "arms"
+                },
+                {
+                    "name": "legs",
+                    "text": "Legs",
+                    "type": "button",
+                    "value": "legs"
                 },
                 {
                     "name": "war",
-                    "text": "Thermonuclear War",
+                    "text": "You pick!",
                     "style": "danger",
                     "type": "button",
                     "value": "war",
                     "confirm": {
-                        "title": "Are you sure?",
-                        "text": "Wouldn't you prefer a good game of chess?",
+                        "title": "I'd be happy to pick for you bro!",
+                        "text": "Don't you have anything in mind though?",
                         "ok_text": "Yes",
                         "dismiss_text": "No"
                     }

@@ -185,7 +185,7 @@ BodybuilderQuote.create!([{
   name: "Mike Tyson",
   quote: "“I’m a dreamer. I have to dream and reach for the stars, and if I miss a star then I grab a handful of clouds.”",
   photo_url: "http://sports-kings.com/wp-content/uploads/2011/11/mike033.jpg"
-}
+},
 
 {
   name: "Muhammad Ali",

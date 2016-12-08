@@ -360,16 +360,42 @@ content_type :json
                     "value": "abs"
                 },
                 {
-                    "name": "glutes",
-                    "text": "Glutes",
-                    "type": "button",
-                    "value": "glutes"
-                },
-                {
                     "name": "arms",
                     "text": "Arms",
                     "type": "button",
                     "value": "arms"
+                },
+                {
+                    "name": "glutes",
+                    "text": "Glutes",
+                    "type": "button",
+                    "value": "glutes"
+                
+                    }
+                }
+            ]
+        }
+    ]
+}.to_json
+end
+
+content_type :json
+{
+    "text": "What's your focus today?",
+    "attachments": [
+        {
+            "text": "What's your focus today?",
+            "fallback": "You are unable to choose a game",
+            "callback_id": "wopr_game",
+            "color": "#3AA3E3",
+            "attachment_type": "default",
+            "actions": [
+               
+                {
+                    "name": "glutes",
+                    "text": "Glutes",
+                    "type": "button",
+                    "value": "glutes"
                 },
                 {
                     "name": "legs",

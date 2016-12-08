@@ -366,37 +366,37 @@ WorkoutType.delete_all
 #MotivationalQuote.reset_autoincrement
 
 WorkoutType.create!([{
-  equipment: "HIIT",
+  workout_type: "HIIT",
   workout_name: "Lorem ipsum"
   url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
 },
 
 {
-  equipment: "Yoga",
+  workout_type: "Yoga",
   workout_name: "Lorem ipsum"
   url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
 },
 
 {
-  equipment: "Pilates",
+  workout_type: "Pilates",
   workout_name: "Lorem ipsum"
   url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
 },
 
 {
-  equipment: "Tai Chi",
+  workout_type: "Tai Chi",
   workout_name: "Lorem ipsum"
   url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
 },
 
 {
-  equipment: "Zumba",
+  workout_type: "Zumba",
   workout_name: "Lorem ipsum"
   url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
 },
 
 {
-  equipment: "Aerobics",
+  workout_type: "Aerobics",
   workout_name: "Lorem ipsum"
   url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
 }])

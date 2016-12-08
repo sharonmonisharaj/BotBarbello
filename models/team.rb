@@ -20,4 +20,3 @@ class Team < ActiveRecord::Base
   end
   
 end
-Contact GitHub API Training Shop Blog About

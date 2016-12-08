@@ -30,6 +30,8 @@ require_relative './models/beforeafter'
 require_relative './models/body_part'
 require_relative './models/tool'
 require_relative './models/workout_type'
+require_relative './models/team'
+require_relative './models/event'
 
 
 # enable sessions for this project

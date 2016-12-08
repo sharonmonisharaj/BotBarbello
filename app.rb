@@ -866,7 +866,9 @@ def respond_to_slack_event json
                     }
             
                 }
-            ].to_json
+            ]
+            
+            }].to_json
     
     client.chat_postMessage(channel: event.channel, text: "Hey bro!", attachments: hello_buttons, as_user: true)
 

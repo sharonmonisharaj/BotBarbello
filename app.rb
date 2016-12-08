@@ -128,7 +128,7 @@ end
 #     SLASH COMMANDS
 # ----------------------------------------------------------------------
 
-post "/workout"  do
+post "/workout/:params"  do
   
   puts params.to_s
 

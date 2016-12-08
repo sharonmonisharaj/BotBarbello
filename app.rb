@@ -319,7 +319,7 @@ post "/botbarbello_intro/" do
 
 # ----------------------------------------------------------------------
 
-post "/botbarbello_outgoing/" do
+post "/outgoing/" do
 #    content_type :json
 #    {text: "Hi! I'm BotBarbello. I'm here to empower you with a new high energy body-building workout video everyday! Building a stronger you is my life's only goal.\n\nHere's how you can make the best use of me with slash commands:\n\nSimply type any of the following into a channel of your choice:\n\n/dumbbell\n/barbell\n/cardio\n/abs\n\nFor help, simply type the word 'help'.", response_type: "in channel" }.to_json
 # end

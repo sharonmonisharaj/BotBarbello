@@ -1,3 +1,3 @@
-class BeforeafterStories < ActiveRecord::Base
+class BeforeafterStory < ActiveRecord::Base
   
 end

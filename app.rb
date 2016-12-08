@@ -357,7 +357,19 @@ content_type :json
                     "text": "Workout Type",
                     "type": "button",
                     "value": "workout_type"
-                }
+                },
+                {
+                    "name": "war",
+                    "text": "You pick!",
+                    "style": "danger",
+                    "type": "button",
+                    "value": "war",
+                    "confirm": {
+                        "title": "I'd be happy to pick for you bro!",
+                        "text": "Don't you have anything in mind though?",
+                        "ok_text": "Yes",
+                        "dismiss_text": "No"
+                    }
             
                 }
             ]

@@ -10,11 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207220126) do
+ActiveRecord::Schema.define(version: 20161208135857) do
 
   create_table "barbell_exercises", force: :cascade do |t|
     t.string "name"
     t.string "barbell"
+  end
+
+  create_table "beforeafter_stories", force: :cascade do |t|
+    t.string "name"
+    t.text   "story"
+    t.string "photo_url"
+  end
+
+  create_table "bodybuilder_quotes", force: :cascade do |t|
+    t.string "name"
+    t.text   "quote"
+    t.string "photo_url"
   end
 
   create_table "cardio_exercises", force: :cascade do |t|

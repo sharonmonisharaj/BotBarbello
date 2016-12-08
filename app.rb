@@ -161,6 +161,70 @@ post "/events" do
 end
 
 
+post "/interactive_buttons" do
+
+  request.body.rewind
+  raw_body = request.body.read
+  puts "Raw: " + raw_body.to_s
+  
+  json_request = JSON.parse( raw_body )
+
+  # check for a URL Verification request.
+  if json_request['type'] == 'url_verification'
+      content_type :json
+      return {challenge: json_request['challenge']}.to_json
+  end
+
+  if json_request['token'] != ENV['SLACK_VERIFICATION_TOKEN']
+      halt 403, 'Incorrect slack token'
+  end
+  
+  call_back = json_request['callback_id']
+  action_name = json_request['actions'].first["name"]
+  action_value = json_request['actions'].first["value"]
+  channel = json_request['channel']
+  team_id = json_request['team_id']
+  
+  team = Team.find_by( team_id: team_id )
+  
+  # didn't find a match... this is junk! 
+  return if team.nil?
+  
+  # see if the event user is the bot user 
+  # if so we shoud ignore the event
+  return if team.bot_user_id == event_user
+  
+  client = team.get_client
+  
+  if call_back == "wopr_game"
+    
+    if action_name == "body_part"
+      client.chat_postMessage(channel: channel, text: "You chose body_part.", as_user: true)
+        
+    elsif action_name == "equipment"
+      client.chat_postMessage(channel: channel, text: "You chose body_part.", as_user: true)
+      
+    elsif action_name == "workout_type"
+      client.chat_postMessage(channel: channel, text: "You chose body_part.", as_user: true)
+      
+    else
+      # war
+      client.chat_postMessage(channel: channel, text: "You chose body_part.", as_user: true)
+    
+    end
+
+    {text: "action_name = #{action_name}", replace_original: true }.to_json
+    
+  else
+    200
+    
+  end
+
+  
+  
+end 
+
+
 
 # ----------------------------------------------------------------------
 #     SLASH COMMANDS
@@ -723,3 +787,49 @@ end
 # Male or female? settings
 
 # Microformating in slack
+
+
+
+
+# for example 
+def respond_to_slack_event json
+  
+  # find the team 
+  team_id = json['team_id']
+  api_app_id = json['api_app_id']
+  event = json['event']
+  event_type = event['type']
+  event_user = event['user']
+  event_text = event['text']
+  event_channel = event['channel']
+  event_ts = event['ts']
+  
+  team = Team.find_by( team_id: team_id )
+  
+  # didn't find a match... this is junk! 
+  return if team.nil?
+  
+  # see if the event user is the bot user 
+  # if so we shoud ignore the event
+  return if team.bot_user_id == event_user
+  
+  event = Event.create( team_id: team_id, type_name: event_type, user_id: event_user, text: event_text, channel: event_channel , timestamp: Time.at(event_ts.to_f) )
+  event.team = team 
+  event.save
+  
+  client = team.get_client
+  
+  #event_to_action client, event 
+  
+  # Hi Commands
+  if ["hi", "hey", "hello"].any? { |w| event.formatted_text.starts_with? w }
+    client.chat_postMessage(channel: event.channel, text: "Hi I'm BotBabello. I'm here to help.", as_user: true)
+
+    # Handle the Help commands
+  elsif event.formatted_text.include? "help"
+    client.chat_postMessage(channel: event.channel, text: get_commands_message( is_admin ), as_user: true)
+
+  end 
+  
+  
+end

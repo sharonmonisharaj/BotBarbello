@@ -146,17 +146,17 @@ post "/workout"  do
     
      if text.downcase.strip == "dumbbell"
        random = DumbbellExercise.all.sample(1).first
-       formatted_message = greeting.sample + " Here's your new dumbbell workout video!\n\n" + Rainbow(random.name).underline + "\n" + random.dumbbell
+       formatted_message = greeting.sample + " Here's your new dumbbell workout video!\n\n" + random.name + "\n" + random.dumbbell
      
      
      elsif text.downcase.strip == "barbell"
        random = BarbellExercise.all.sample(1).first
-       formatted_message = greeting.sample + " I've been asked to get a #{text} workout"
+       formatted_message = greeting.sample + " Here's your new barbell workout video!\n\n" + random.name + "\n" + random.barbell
     
      
      elsif text.downcase.strip == "cardio"
        random = CardioExercise.all.sample(1).first
-       formatted_message = greeting.sample + " I've been asked to get a #{text} workout"
+       formatted_message = greeting.sample + " Here's your new cardio workout video!\n\n" + random.name + "\n" + random.cardio
   
    else 
      "I'm sorry, it looks like I can't help you with that at the moment. Please enter one of the following\n\n/workout dumbbell\n/workout barbell\n/workout cardio"

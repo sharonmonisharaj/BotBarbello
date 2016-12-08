@@ -209,11 +209,11 @@ p "Created #{BodybuilderQuote.count} bodybuilder quotes!"
 
 # -----------------------------------------------------------------
 
-BeforeafterStory.delete_all
+Beforeafter.delete_all
 
 #MotivationalQuote.reset_autoincrement
 
-BeforeafterStory.create!([{
+Beforeafter.create!([{
   name: "Arnold Swarzenegger",
   story: "Arnold went from Average joe in the First picture, which we can only guess he was in his late teens, to winning Mr. Olympia his first time at the age of 23, then winning 7 of them shortly after. He’s gone on record saying that he’s used anabolic steroids for “Tissue Building” while they were legal in the states. Arnold is the Poster boy of Bodybuilding, as he rose to stardom through many Hollywood movies and product promotions.",
   photo_url: "http://proteinfart.proteinfart.netdna-cdn.com/wp-content/uploads/2015/07/arnold-schwarzenegger.jpg"
@@ -237,7 +237,7 @@ BeforeafterStory.create!([{
   photo_url: "http://proteinfart.proteinfart.netdna-cdn.com/wp-content/uploads/2015/07/jeff-seid.jpg"
 }])
 
-p "Created #{BeforeafterStory.count} before-and-after stories!"
+p "Created #{Beforeafter.count} before-and-after stories!"
 
 # -----------------------------------------------------------------
 

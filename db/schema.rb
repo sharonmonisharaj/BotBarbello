@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206155818) do
+ActiveRecord::Schema.define(version: 20161207220126) do
 
   create_table "barbell_exercises", force: :cascade do |t|
     t.string "name"
@@ -25,6 +25,19 @@ ActiveRecord::Schema.define(version: 20161206155818) do
   create_table "dumbbell_exercises", force: :cascade do |t|
     t.string "dumbbell"
     t.string "name"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string  "access_token"
+    t.string  "team_name"
+    t.string  "team_id"
+    t.string  "user_id"
+    t.text    "raw_json"
+    t.string  "incoming_webhook"
+    t.string  "incoming_channel"
+    t.string  "bot_token"
+    t.string  "bot_user_id"
+    t.boolean "is_active",        default: true
   end
 
 end

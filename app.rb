@@ -146,7 +146,7 @@ post "/workout"  do
     
      if text.downcase.strip == "dumbbell"
        random = DumbbellExercise.all.sample(1).first
-       formatted_message = greeting.sample + " I've been asked to get a #{text} workout"
+       formatted_message = greeting.sample + " Here's your new dumbbell workout video!\n\n" + Rainbow(random.name).underline + "\n" + random.dumbbell
      
      
      elsif text.downcase.strip == "barbell"

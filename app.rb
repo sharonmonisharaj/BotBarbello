@@ -154,7 +154,7 @@ post "/events" do
       halt 403, 'Incorrect slack token'
   end
 
-  #respond_to_slack_event json_request
+  respond_to_slack_event json_request
   
   # always respond with a 200
   # event otherwise it will retry...

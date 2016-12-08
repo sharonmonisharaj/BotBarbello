@@ -129,6 +129,39 @@ end
 # If successful this will give us something like this:
 # {"ok"=>true, "access_token"=>"xoxp-92618588033-92603015268-110199165062-deab8ccb6e1d119caaa1b3f2c3e7d690", "scope"=>"identify,bot,commands,incoming-webhook", "user_id"=>"U2QHR0F7W", "team_name"=>"Programming for Online Prototypes", "team_id"=>"T2QJ6HA0Z", "incoming_webhook"=>{"channel"=>"bot-testing", "channel_id"=>"G36QREX9P", "configuration_url"=>"https://onlineprototypes2016.slack.com/services/B385V4V8E", "url"=>"https://hooks.slack.com/services/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"}, "bot"=>{"bot_user_id"=>"U37HMQRS8", "bot_access_token"=>"xoxb-109599841892-oTaxqITzZ8fUSdmMDxl5kraO"}
 
+
+# ----------------------------------------------------------------------
+#     MONITOR EVENTS
+# ----------------------------------------------------------------------
+
+
+post "/events" do 
+  request.body.rewind
+  raw_body = request.body.read
+  puts "Raw: " + raw_body.to_s
+  
+  json_request = JSON.parse( raw_body )
+
+  # check for a URL Verification request.
+  if json_request['type'] == 'url_verification'
+      content_type :json
+      return {challenge: json_request['challenge']}.to_json
+  end
+
+  if json_request['token'] != ENV['SLACK_VERIFICATION_TOKEN']
+      halt 403, 'Incorrect slack token'
+  end
+
+  #respond_to_slack_event json_request
+  
+  # always respond with a 200
+  # event otherwise it will retry...
+  200
+  
+end
+
+
+
 # ----------------------------------------------------------------------
 #     SLASH COMMANDS
 # ----------------------------------------------------------------------

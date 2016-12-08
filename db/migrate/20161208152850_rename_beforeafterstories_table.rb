@@ -1,5 +1,5 @@
 class RenameBeforeafterstoriesTable < ActiveRecord::Migration[5.0]
   def change
-       drop_table :beforeafter_story
+       rename_table :beforeafter_stories, :beforeafter_storys
      end 
    end

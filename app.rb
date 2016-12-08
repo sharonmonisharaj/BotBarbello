@@ -320,9 +320,50 @@ post "/botbarbello_intro/" do
 # ----------------------------------------------------------------------
 
 post "/botbarbello_outgoing/" do
-   content_type :json
-   {text: "Hi! I'm BotBarbello. I'm here to empower you with a new high energy body-building workout video everyday! Building a stronger you is my life's only goal.\n\nHere's how you can make the best use of me with slash commands:\n\nSimply type any of the following into a channel of your choice:\n\n/dumbbell\n/barbell\n/cardio\n/abs\n\nFor help, simply type the word 'help'.", response_type: "in channel" }.to_json
-end
+#    content_type :json
+#    {text: "Hi! I'm BotBarbello. I'm here to empower you with a new high energy body-building workout video everyday! Building a stronger you is my life's only goal.\n\nHere's how you can make the best use of me with slash commands:\n\nSimply type any of the following into a channel of your choice:\n\n/dumbbell\n/barbell\n/cardio\n/abs\n\nFor help, simply type the word 'help'.", response_type: "in channel" }.to_json
+# end
+
+content_type :json
+{
+    "text": "Would you like to play a game?",
+    "attachments": [
+        {
+            "text": "Choose a game to play",
+            "fallback": "You are unable to choose a game",
+            "callback_id": "wopr_game",
+            "color": "#3AA3E3",
+            "attachment_type": "default",
+            "actions": [
+                {
+                    "name": "chess",
+                    "text": "Chess",
+                    "type": "button",
+                    "value": "chess"
+                },
+                {
+                    "name": "maze",
+                    "text": "Falken's Maze",
+                    "type": "button",
+                    "value": "maze"
+                },
+                {
+                    "name": "war",
+                    "text": "Thermonuclear War",
+                    "style": "danger",
+                    "type": "button",
+                    "value": "war",
+                    "confirm": {
+                        "title": "Are you sure?",
+                        "text": "Wouldn't you prefer a good game of chess?",
+                        "ok_text": "Yes",
+                        "dismiss_text": "No"
+                    }
+                }
+            ]
+        }
+    ]
+}end
 
 # ----------------------------------------------------------------------
 #     ERRORS

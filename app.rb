@@ -341,10 +341,10 @@ content_type :json
             "attachment_type": "default",
             "actions": [
                 {
-                    "name": "bodypart",
+                    "name": "body_part",
                     "text": "Body Part",
                     "type": "button",
-                    "value": "bodypart"
+                    "value": "body_part"
                 },
                 {
                     "name": "equipment",
@@ -353,10 +353,10 @@ content_type :json
                     "value": "equipment"
                 },
                 {
-                    "name": "workouttype",
+                    "name": "workout_type",
                     "text": "Workout Type",
                     "type": "button",
-                    "value": "workouttype"
+                    "value": "workout_type"
                 }
             
                 }

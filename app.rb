@@ -124,7 +124,6 @@ end
 # If successful this will give us something like this:
 # {"ok"=>true, "access_token"=>"xoxp-92618588033-92603015268-110199165062-deab8ccb6e1d119caaa1b3f2c3e7d690", "scope"=>"identify,bot,commands,incoming-webhook", "user_id"=>"U2QHR0F7W", "team_name"=>"Programming for Online Prototypes", "team_id"=>"T2QJ6HA0Z", "incoming_webhook"=>{"channel"=>"bot-testing", "channel_id"=>"G36QREX9P", "configuration_url"=>"https://onlineprototypes2016.slack.com/services/B385V4V8E", "url"=>"https://hooks.slack.com/services/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"}, "bot"=>{"bot_user_id"=>"U37HMQRS8", "bot_access_token"=>"xoxb-109599841892-oTaxqITzZ8fUSdmMDxl5kraO"}
 
-
 # ----------------------------------------------------------------------
 #     SLASH COMMANDS
 # ----------------------------------------------------------------------
@@ -174,6 +173,8 @@ post "/workout"  do
   end
 end
 
+# ----------------------------------------------------------------------
+
 post "/dumbbell_slash_cmd/" do
 
   puts params.to_s
@@ -186,15 +187,6 @@ post "/dumbbell_slash_cmd/" do
     user_name = params[:user_name]
     text = params[:text]
     response_url = params[:response_url]
-
-
-    if text.downcase.strip == "cardio"
-      # send back a cardio workout
-    elsif text.downcase.strip == "barbell"
-      # ...
-      # ...
-      # ..
-    end  
     
     greeting = ["Hey dude!", "Hey man!", "Hey brother!", "It's great to see you bro!"]
     

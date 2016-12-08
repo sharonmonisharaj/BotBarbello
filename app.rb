@@ -326,8 +326,8 @@ post "/outgoing/" do
 
 content_type :json
 {
-    text: "Would you like to play a game?",
-    "attachments": [
+    
+    attachments: [
         {
             "text": "Choose a game to play",
             "fallback": "You are unable to choose a game",

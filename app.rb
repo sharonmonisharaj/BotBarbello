@@ -25,6 +25,8 @@ require_relative 'app'
 require_relative './models/dumbbell_exercise'
 require_relative './models/barbell_exercise'
 require_relative './models/cardio_exercise'
+require_relative './models/bodybuilder_quote'
+require_relative './models/beforeafter_story'
 
 
 # enable sessions for this project

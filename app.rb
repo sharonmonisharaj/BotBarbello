@@ -331,7 +331,7 @@ post "/outgoing/" do
 
 content_type :json
 {
-    "text": "What's your focus today?",
+    "text": "Hey bro!",
     "attachments": [
         {
             "text": "What's your focus today?",

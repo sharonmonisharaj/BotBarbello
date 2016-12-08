@@ -292,11 +292,11 @@ p "Created #{BodyPart.count} body-part targetted exercises!"
 
 # -----------------------------------------------------------------
 
-EquipmentWorkout.delete_all
+Tool.delete_all
 
 #MotivationalQuote.reset_autoincrement
 
-EquipmentWorkout.create!([{
+Tool.create!([{
   equipment: "Dumbbells",
   workout_name: "Lorem ipsum",
   url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
@@ -356,7 +356,7 @@ EquipmentWorkout.create!([{
   url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
 }])
 
-p "Created #{EquipmentWorkout.count} equipment based exercises!"
+p "Created #{Tool.count} equipment based exercises!"
 
 
 # -----------------------------------------------------------------

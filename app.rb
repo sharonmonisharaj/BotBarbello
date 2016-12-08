@@ -826,11 +826,7 @@ def respond_to_slack_event json
   # Hi Commands
   if ["hi", "hey", "hello"].any? { |w| event.formatted_text.starts_with? w }
     
-    hello_text = 
-content_type :json
-{
-    "text": "Hey bro!",
-    "attachments": [
+    hello_buttons =  [
         {
             "text": "How would you like to go about your workout today?",
             "fallback": "You are unable to choose a game",
@@ -870,16 +866,13 @@ content_type :json
                     }
             
                 }
-            ]
-        }
-    ]
-}.to_json
+            ].to_json
     
-    client.chat_postMessage(channel: event.channel, text: hello_text.to_s, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "Hey bro!", attachments: hello_buttons, as_user: true)
 
     # Handle the Help commands
   elsif event.formatted_text.include? "help"
-    client.chat_postMessage(channel: event.channel, text: get_commands_message( is_admin ), as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "help text", as_user: true)
 
   
 

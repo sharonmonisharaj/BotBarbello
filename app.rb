@@ -159,8 +159,9 @@ post "/interactive_buttons/" do
   team_id = json_request['team_id']
   
   puts "Action: " + call_back.to_s
-  puts "Call Back: " + call_back.to_s
+  puts "Call Back: " + action_name.to_s
   puts "team_id : " + team_id.to_s
+  puts "channel : " + channel.to_s
   
   
   team = Team.find_by( team_id: team_id )
@@ -173,10 +174,12 @@ post "/interactive_buttons/" do
   client = team.get_client
   
   if call_back == "wopr_game"
-
-
     
+    puts "found match "
     if action_name == "body_part"
+
+      puts "body part found "
+
       client.chat_postMessage(channel: channel, text: "You chose body_part.", as_user: true)
         
     elsif action_name == "equipment"

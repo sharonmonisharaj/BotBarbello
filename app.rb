@@ -138,6 +138,8 @@ post "/interactive_buttons/" do
 
   request.body.rewind
   raw_body = request.body.read
+
+  puts "Params: " + params.to_s
   puts "Raw: " + raw_body.to_s
   
   json_request = JSON.parse( raw_body )

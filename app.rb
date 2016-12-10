@@ -140,11 +140,10 @@ post "/interactive_buttons/" do
   raw_body = request.body.read
 
   puts "Params: " + params.to_s
-  puts "Raw: " + raw_body.to_s
+  #puts "Raw: " + raw_body.to_s
   
   json_request = JSON.parse( params["payload"] )
-
-  puts json_request.to_s
+  puts "JSON = " + json_request.to_s
   puts "checking token"
 
   if json_request['token'] != ENV['SLACK_VERIFICATION_TOKEN']

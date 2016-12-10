@@ -144,6 +144,7 @@ post "/interactive_buttons/" do
   
   json_request = JSON.parse( params["payload"] )
 
+  puts json_request.to_s
   puts "checking token"
 
   if json_request['token'] != ENV['SLACK_VERIFICATION_TOKEN']

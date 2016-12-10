@@ -134,7 +134,7 @@ end
 
 # ----------------------------------------------------------------------
 
-post "/interactive_buttons" do
+post "/interactive_buttons/" do
 
   request.body.rewind
   raw_body = request.body.read

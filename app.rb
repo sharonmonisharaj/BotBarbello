@@ -248,7 +248,9 @@ end
 # ----------------------------------------------------------------------
 
 post "/intro/" do
-   content_type :json {
+   content_type :json 
+   
+   {
       "text": "Hi! I'm BotBarbello. I'm here to empower you with new workout videos everyday! Building a stronger you is my life's only goal.\n\nHere's how you can make the best use of me with slash commands:\n\nSimply type `workout` followed by `dumbbell`, `barbell` or `cardio` into a channel of your choice to quickly get started.", response_type: "in channel" }.to_json
       "attachments": [
         {

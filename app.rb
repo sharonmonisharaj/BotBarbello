@@ -144,37 +144,37 @@ post "/interactive_buttons/" do
   
   json_request = JSON.parse( params["payload"] )
 
-  # check for a URL Verification request.
-  if json_request['type'] == 'url_verification'
-      content_type :json
-      return {challenge: json_request['challenge']}.to_json
-  end
+  puts "checking token"
 
   if json_request['token'] != ENV['SLACK_VERIFICATION_TOKEN']
       halt 403, 'Incorrect slack token'
   end
   
+  puts "token valid"
+
   call_back = json_request['callback_id']
   action_name = json_request['actions'].first["name"]
   action_value = json_request['actions'].first["value"]
   channel = json_request['channel']
   team_id = json_request['team_id']
   
+  puts "Action: " + call_back.to_s
+  puts "Call Back: " + call_back.to_s
+  puts "team_id : " + team_id.to_s
+  
+  
   team = Team.find_by( team_id: team_id )
   
   # didn't find a match... this is junk! 
   return if team.nil?
   
-  # see if the event user is the bot user 
-  # if so we shoud ignore the event
-  return if team.bot_user_id == event_user
+  puts "team found :" 
   
   client = team.get_client
   
   if call_back == "wopr_game"
-    
-    puts "Call Book: " + call_back.to_s
-    
+
+
     
     if action_name == "body_part"
       client.chat_postMessage(channel: channel, text: "You chose body_part.", as_user: true)

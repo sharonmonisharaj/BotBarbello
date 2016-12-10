@@ -136,6 +136,8 @@ end
 
 post "/interactive_buttons/" do
 
+  content_type :json
+
   request.body.rewind
   raw_body = request.body.read
 

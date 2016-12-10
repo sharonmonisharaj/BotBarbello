@@ -171,6 +171,9 @@ post "/interactive_buttons" do
   
   if call_back == "wopr_game"
     
+    puts "Call Book: " + call_back.to_s
+    
+    
     if action_name == "body_part"
       client.chat_postMessage(channel: channel, text: "You chose body_part.", as_user: true)
         

@@ -155,8 +155,8 @@ post "/interactive_buttons/" do
   call_back = json_request['callback_id']
   action_name = json_request['actions'].first["name"]
   action_value = json_request['actions'].first["value"]
-  channel = json_request['channel']
-  team_id = json_request['team_id']
+  channel = json_request['channel']['id']
+  team_id = json_request['team']['id']
   
   puts "Action: " + call_back.to_s
   puts "Call Back: " + action_name.to_s

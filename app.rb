@@ -176,6 +176,8 @@ post "/interactive_buttons/" do
   client = team.get_client
   
   if call_back == "intro"
+    attachments =  step_one 
+    client.chat_postMessage(channel: channel, attachments: attachments, as_user: true)
     
     replace_message = "Good choice!"
     
@@ -202,9 +204,8 @@ post "/interactive_buttons/" do
       client.chat_postMessage(channel: channel, text: "You chose muscle_group.", as_user: true)
       
     else
-      replace_message += "Here's a something else workout."
-
-      client.chat_postMessage(channel: channel, text: "You chose muscle_group.", as_user: true)
+      replace_message += "Try typing 'start workout'"
+      client.chat_postMessage(channel: channel, as_user: true)
     
     end
 

@@ -396,11 +396,11 @@ end
 def intro
    [
         {
-            "text": "I'm BotBarbello, your fitness buddy! We're going to have a blast!\n\nHere's the lingo I understand brother -\n\nType `/inspire` to be inspired by a smashing quote from ultra famous celebrity bodybuilders!\n\nType `/workout` followed by `cardio`, `dumbbell` or `barbell` for a quick workout video belonging to that category.\nYou can also ask me for a video on any of the following by simply typing\n`shoulders`\n`chest`\n`back`\n`abs`\n`arms`\n`glutes`\n`legs`.\n\nIf you want a more streamlined approach to your workout, start here!",
+            "text": "I'm BotBarbello, your fitness buddy! We're going to have a blast!\n\nHere's the lingo I understand brother -\n\nType `/inspire` to be inspired by a smashing quote from ultra famous celebrity bodybuilders!\n\nType `/workout` followed by `cardio`, `dumbbell` or `barbell` for a quick workout video belonging to that category.\n\nYou can also ask me for a video on any of the following by simply typing\n`shoulders`\n`chest`\n`back`\n`abs`\n`arms`\n`glutes`\n`legs`.\n\nIf you want a more streamlined approach to your workout, start here!",
             "callback_id": "intro",
             "color": "#3AA3E3",
             "attachment_type": "default",
-            "mrkdwn": true,
+            "mrkdwn": "true",
             "actions": [
                 {
                     "name": "start_workout",

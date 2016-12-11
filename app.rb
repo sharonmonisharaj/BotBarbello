@@ -176,27 +176,25 @@ post "/interactive_buttons/" do
   client = team.get_client
   
   if call_back == "intro"
-    attachments =  step_one 
-    client.chat_postMessage(channel: channel, text: "You chose muscle_group.", attachments: attachments, as_user: true)
-    
+
     replace_message = "Good choice!"
     
     puts "found match "
     
-    if action_name == "intro"
+    if action_name == "start_workout"
       attachments =  step_one 
-      client.chat_postMessage(channel: channel, text: "You chose muscle_group.", attachments: attachments, as_user: true)
+      client.chat_postMessage(channel: channel, text: "Let's get started!", attachments: attachments, as_user: true)
       
       
     elsif action_name == "muscle_group"
       attachments =  muscle_group 
-      client.chat_postMessage(channel: channel, text: "You chose muscle_group.", attachments: attachments, as_user: true)
+      client.chat_postMessage(channel: channel, text: "You chose to workout by muscle group", attachments: attachments, as_user: true)
 
         
     elsif action_name == "equipment"
       replace_message += "Here's a equipmentworkout."
 
-      client.chat_postMessage(channel: channel, text: "You chose muscle_group.", as_user: true)
+      client.chat_postMessage(channel: channel, text: "You chose to workout by equipment!", as_user: true)
       
     elsif action_name == "workout_type"
       replace_message += "Here's a workout type workout."

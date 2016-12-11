@@ -318,8 +318,12 @@ def respond_to_slack_event json
   # Hi Commands
   if ["hi", "hey", "hello"].any? { |w| event.formatted_text.starts_with? w }
     
-    attachments =  get_hello_buttons
+    attachments =  get_hello_buttons 
+    client.chat_postMessage(channel: event.channel, text: "Hey bro!", attachments: attachments, as_user: true)
+
+  elsif ["muscle group"].any? { |w| event.formatted_text.starts_with? w }
     
+    attachments =  muscle_group 
     client.chat_postMessage(channel: event.channel, text: "Hey bro!", attachments: attachments, as_user: true)
 
     # Handle the Help commands
@@ -437,61 +441,61 @@ end
 #
 # # # ----------------------------------------------------------------------
 #
-# def muscle_group
-#
-# [
-#         {
-#             "text": "Which muscle group would you like to target?",
-#             "callback_id": "muscle_group",
-#             "color": "#3AA3E3",
-#             "attachment_type": "default",
-#             "actions": [
-#                 {
-#                     "name": "shoulders",
-#                     "text": "Shoulders",
-#                     "type": "button",
-#                     "value": "shoulders"
-#                 },
-#                 {
-#                     "name": "chest",
-#                     "text": "Chest",
-#                     "type": "button",
-#                     "value": "chest"
-#                 },
-#                 {
-#                     "name": "back",
-#                     "text": "Back",
-#                     "type": "button",
-#                     "value": "back"
-#                 },
-#                 {
-#                     "name": "abs",
-#                     "text": "Abs",
-#                     "type": "button",
-#                     "value": "abs"
-#                 },
-#                 {
-#                     "name": "arms",
-#                     "text": "Arms",
-#                     "type": "button",
-#                     "value": "arms"
-#                 },
-#                 {
-#                     "name": "glutes",
-#                     "text": "Glutes",
-#                     "type": "button",
-#                     "value": "glutes"
-#                 },
-#                 {
-#                     "name": "legs",
-#                     "text": "Legs",
-#                     "type": "button",
-#                     "value": "legs"
-#                 }
-#             ]
-#           }
-#         ].to_json
-# end
+def muscle_group
+
+[
+        {
+            "text": "Which muscle group would you like to target?",
+            "callback_id": "muscle_group",
+            "color": "#3AA3E3",
+            "attachment_type": "default",
+            "actions": [
+                {
+                    "name": "shoulders",
+                    "text": "Shoulders",
+                    "type": "button",
+                    "value": "shoulders"
+                },
+                {
+                    "name": "chest",
+                    "text": "Chest",
+                    "type": "button",
+                    "value": "chest"
+                },
+                {
+                    "name": "back",
+                    "text": "Back",
+                    "type": "button",
+                    "value": "back"
+                },
+                {
+                    "name": "abs",
+                    "text": "Abs",
+                    "type": "button",
+                    "value": "abs"
+                },
+                {
+                    "name": "arms",
+                    "text": "Arms",
+                    "type": "button",
+                    "value": "arms"
+                },
+                {
+                    "name": "glutes",
+                    "text": "Glutes",
+                    "type": "button",
+                    "value": "glutes"
+                },
+                {
+                    "name": "legs",
+                    "text": "Legs",
+                    "type": "button",
+                    "value": "legs"
+                }
+            ]
+          }
+        ].to_json
+end
 #
 # # # ----------------------------------------------------------------------
 #

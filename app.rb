@@ -284,7 +284,7 @@ post "/inspire/"  do
     
      if text.downcase.strip == "ali"
        ali = BodybuilderQuote.all.where( name: "Muhammad Ali" )
-       random = ali.sample(1).first
+       random = ali.sample
        formatted_message = random.quote + "\n - " + random.name + "\n" + random.photo_url
     
      elsif text == nil

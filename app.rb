@@ -177,16 +177,13 @@ post "/interactive_buttons/" do
   
   if call_back == "hello_buttons"
     
-    replace_message = "Thanks for your selection."
+    replace_message = "Good choice!"
     
     puts "found match "
     if action_name == "muscle_group"
-
-      replace_message += "What are you in the mood for?"
       attachments =  muscle_group 
-      client.chat_postMessage(channel: channel, text: "Yo dude!", attachments: attachments, as_user: true)
+      client.chat_postMessage(channel: channel, attachments: attachments, as_user: true)
 
-      client.chat_postMessage(channel: channel, text: "You chose muscle_group.", as_user: true)
         
     elsif action_name == "equipment"
       replace_message += "Here's a equipmentworkout."

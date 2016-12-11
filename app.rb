@@ -175,7 +175,7 @@ post "/interactive_buttons/" do
   
   client = team.get_client
   
-  if call_back == "step_one"
+  if call_back == "intro"
     
     replace_message = "Good choice!"
     

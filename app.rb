@@ -318,9 +318,9 @@ def respond_to_slack_event json
   # Hi Commands
   if ["hi", "hey", "hello"].any? { |w| event.formatted_text.starts_with? w }
     
-    hello_buttons =  get_hello_buttons
+    attachments =  get_hello_buttons
     
-    client.chat_postMessage(channel: event.channel, text: "Hey bro!", attachments: hello_buttons, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "Hey bro!", attachments: attachments, as_user: true)
 
     # Handle the Help commands
   elsif event.formatted_text.include? "help"

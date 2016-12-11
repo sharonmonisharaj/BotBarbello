@@ -129,7 +129,7 @@ BodybuilderQuote.create!([{
 {
   name: "Arnold Swarzenegger",
   quote: "Just like in bodybuilding, failure is also a necessary experience for growth in our own lives, for if we're never tested to our limits, how will we know how strong we really are? How will we ever grow?",
-  photo_url: "http://c6.staticflickr.com/3/2476/4104193773_aa66731f89.jpg"
+  photo_url: "http://www.bodybuilding.com/fun/images/2015/arnold-blueprint-mass-training-3-graphics.jpg"
 },
 
 {

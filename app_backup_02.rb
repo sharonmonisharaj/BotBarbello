@@ -181,25 +181,21 @@ post "/interactive_buttons/" do
       puts "found match "
     
       if action_name == "start_workout"
-        replace_message += "Cool!" 
         attachments =  step_one 
         client.chat_postMessage(channel: channel, text: "Let's get started!", attachments: attachments, as_user: true)
 
     
       elsif action_name == "muscle_group"
-        replace_message += "Cool!" 
         attachments =  muscle_group 
         client.chat_postMessage(channel: channel, text: "You chose to workout by muscle group!", attachments: attachments, as_user: true)
 
         
       elsif action_name == "equipment"
-        replace_message += "Cool!" 
         attachments =  equipment
         client.chat_postMessage(channel: channel, text: "You chose to workout by equipment!", as_user: true)
       
       
       elsif action_name == "workout_type"
-        replace_message += "Cool!" 
         attachments =  workout_type
         client.chat_postMessage(channel: channel, text: "You chose to workout by workout type!", as_user: true)
       

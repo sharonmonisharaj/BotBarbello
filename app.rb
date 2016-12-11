@@ -286,12 +286,32 @@ post "/inspire/"  do
        ali = BodybuilderQuote.all.where( name: "Muhammad Ali" )
        random = ali.sample
        formatted_message = random.quote + "\n - " + random.name + "\n" + random.photo_url
+       
+    elsif text.downcase.strip == "arnold"
+      arnold = BodybuilderQuote.all.where( name: "Arnold Swarzenegger" )
+      random = arnold.sample
+      formatted_message = random.quote + "\n - " + random.name + "\n" + random.photo_url
+      
+    elsif text.downcase.strip == "rock"
+      rock = BodybuilderQuote.all.where( name: "Dwayne “The Rock“ Johnson" )
+      random = rock.sample
+      formatted_message = random.quote + "\n - " + random.name + "\n" + random.photo_url
+      
+    elsif text.downcase.strip == "stallone"
+      stallone = BodybuilderQuote.all.where( name: "Sylvester Stallone, Rocky Balboa" )
+      random = stallone.sample
+      formatted_message = random.quote + "\n - " + random.name + "\n" + random.photo_url
+      
+    elsif text.downcase.strip == "tyson"
+      tyson = BodybuilderQuote.all.where( name: "Mike Tyson" )
+      random = tyson.sample
+      formatted_message = random.quote + "\n - " + random.name + "\n" + random.photo_url
     
            
-   else 
-     random = BodybuilderQuote.all.sample(1).first
-     formatted_message = random.quote + "\n - " + random.name + "\n" + random.photo_url
-   end
+     else 
+       random = BodybuilderQuote.all.sample(1).first
+       formatted_message = random.quote + "\n - " + random.name + "\n" + random.photo_url
+     end
 
     content_type :json
   

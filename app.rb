@@ -177,7 +177,7 @@ post "/interactive_buttons/" do
   
   if call_back == "intro"
     attachments =  step_one 
-    client.chat_postMessage(channel: channel, attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: channel, text: "You chose muscle_group.", attachments: attachments, as_user: true)
     
     replace_message = "Good choice!"
     
@@ -185,12 +185,12 @@ post "/interactive_buttons/" do
     
     if action_name == "intro"
       attachments =  step_one 
-      client.chat_postMessage(channel: channel, attachments: attachments, as_user: true)
+      client.chat_postMessage(channel: channel, text: "You chose muscle_group.", attachments: attachments, as_user: true)
       
       
     elsif action_name == "muscle_group"
       attachments =  muscle_group 
-      client.chat_postMessage(channel: channel, attachments: attachments, as_user: true)
+      client.chat_postMessage(channel: channel, text: "You chose muscle_group.", attachments: attachments, as_user: true)
 
         
     elsif action_name == "equipment"
@@ -375,20 +375,6 @@ def step_one
                   "text": "Workout Type",
                   "type": "button",
                   "value": "workout_type"
-              },
-              {
-                  "name": "war",
-                  "text": "You decide!",
-                  "style": "danger",
-                  "type": "button",
-                  "value": "war",
-                  "confirm": {
-                      "title": "I'd be happy to pick for you bro!",
-                      "text": "Don't you have anything in mind though?",
-                      "ok_text": "Yes",
-                      "dismiss_text": "No"
-                  }
-          
               }
           ]    
         }

@@ -281,17 +281,17 @@ post "/inspire/"  do
     text = params[:text]
     response_url = params[:response_url]
 
-    
-     if text.downcase.strip == "ali"
-       ali = BodybuilderQuote.all.where( name: "Muhammad Ali" )
-       random = ali.sample
-       formatted_message = random.quote + "\n - " + random.name + "\n" + random.photo_url
-    
+         #
+     # if text.downcase.strip == "ali"
+     #   ali = BodybuilderQuote.all.where( name: "Muhammad Ali" )
+     #   random = ali.sample
+     #   formatted_message = random.quote + "\n - " + random.name + "\n" + random.photo_url
+     #
            
-   else 
+
      random = BodybuilderQuote.all.sample(1).first
      formatted_message = random.quote + "\n - " + random.name + "\n" + random.photo_url
-   end
+
 
     content_type :json
   

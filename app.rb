@@ -316,14 +316,21 @@ def respond_to_slack_event json
   #event_to_action client, event 
   
   # Hi Commands
-  if ["hi", "hey", "hello"].any? { |w| event.formatted_text.starts_with? w }
-    
+  if ["hi", "hey", "hello"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  get_hello_buttons 
     client.chat_postMessage(channel: event.channel, text: "Hey bro!", attachments: attachments, as_user: true)
 
-  elsif ["muscle group"].any? { |w| event.formatted_text.starts_with? w }
-    
+
+  elsif ["muscle group"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  muscle_group 
+    client.chat_postMessage(channel: event.channel, text: "Hey bro!", attachments: attachments, as_user: true)
+
+  elsif ["upper body"].any? { |w| event.formatted_text.starts_with? w }  
+    attachments =  upper_body 
+    client.chat_postMessage(channel: event.channel, text: "Hey bro!", attachments: attachments, as_user: true)
+
+  elsif ["lower body"].any? { |w| event.formatted_text.starts_with? w }  
+    attachments =  lower_body 
     client.chat_postMessage(channel: event.channel, text: "Hey bro!", attachments: attachments, as_user: true)
 
     # Handle the Help commands
@@ -451,6 +458,63 @@ def muscle_group
             "attachment_type": "default",
             "actions": [
                 {
+                    "name": "upper_body",
+                    "text": "Upper Body",
+                    "type": "button",
+                    "value": "upper_body"
+                },
+                {
+                    "name": "lower_body",
+                    "text": "Lower Body",
+                    "type": "button",
+                    "value": "lower_body"
+                }
+            ]
+          }
+        ].to_json
+end
+#
+
+# # # ----------------------------------------------------------------------
+
+def lower_body
+
+[
+        {
+            "text": "What's your pick bro?",
+            "callback_id": "lower_body",
+            "color": "#3AA3E3",
+            "attachment_type": "default",
+            "actions": [
+                {
+                    "name": "glutes",
+                    "text": "Glutes",
+                    "type": "button",
+                    "value": "glutes"
+                },
+                {
+                    "name": "legs",
+                    "text": "Legs",
+                    "type": "button",
+                    "value": "legs"
+                }
+            ]
+          }
+        ].to_json
+end
+
+# # # ----------------------------------------------------------------------
+
+def upper_body
+
+[
+        {
+            "text": "What's it going to be today?",
+            "callback_id": "upper_body",
+            "color": "#3AA3E3",
+            "attachment_type": "default",
+            "actions": [
+                {
                     "name": "shoulders",
                     "text": "Shoulders",
                     "type": "button",
@@ -479,24 +543,12 @@ def muscle_group
                     "text": "Arms",
                     "type": "button",
                     "value": "arms"
-                },
-                {
-                    "name": "glutes",
-                    "text": "Glutes",
-                    "type": "button",
-                    "value": "glutes"
-                },
-                {
-                    "name": "legs",
-                    "text": "Legs",
-                    "type": "button",
-                    "value": "legs"
                 }
             ]
           }
         ].to_json
 end
-#
+
 # # # ----------------------------------------------------------------------
 #
 # def equipment

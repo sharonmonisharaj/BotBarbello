@@ -287,6 +287,10 @@ post "/inspire/"  do
        random = ali.sample(1).first
        formatted_message = random.quote + "\n - " + random.name + "\n" + random.photo_url
     
+     elsif text == nil
+       random = BodybuilderQuote.all.sample(1).first
+       formatted_message = random.quote + "\n - " + random.name + "\n" + random.photo_url
+       
    else 
      "I'm sorry, it looks like I can't help you with that at the moment. Please enter one of the following\n\n/workout dumbbell\n/workout barbell\n/workout cardio"
    end

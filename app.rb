@@ -374,21 +374,15 @@ def get_hello_buttons
                   }
           
               }
-          ]
-          
-          }].to_json
-          
+          ]    
+        }
+    ].to_json   
 end 
 
 # ----------------------------------------------------------------------  
 
 def intro
-   content_type :json 
-   
-   {
-      "text": "Hi! I'm BotBarbello. I'm here to empower you with new workout videos everyday! Building a stronger you is my life's only goal.\n\nHere's how you can make the best use of me with slash commands:\n\nSimply type `workout` followed by `dumbbell`, `barbell` or `cardio` into a channel of your choice to quickly get started.", 
-      "response_type": "in channel",
-      "attachments": [
+   [
         {
             "text": "If you want a more streamlined approach to your workout, start here!",
             "fallback": "Start your cardio workout by typing `workout cardio`",
@@ -405,18 +399,14 @@ def intro
                 }
             ]
         }
-    ]
-}.to_json
+    ].to_json
 end
 
 # ----------------------------------------------------------------------
 
 def step_one
 
-content_type :json
-{
-    "text": "Hey bro!",
-    "attachments": [
+[
         {
             "text": "How would you like to go about your workout today?",
             "fallback": "You are unable to choose a game",
@@ -444,18 +434,14 @@ content_type :json
                 }
             ]
         }
-    ]
-}.to_json
+    ].to_json
 end
 
 # # ----------------------------------------------------------------------
 
 def muscle_group
 
-content_type :json
-{
-    "text": "Hey bro!",
-    "attachments": [
+[
         {
             "text": "Which muscle group would you like to target?",
             "callback_id": "muscle_group",
@@ -506,18 +492,14 @@ content_type :json
                 }
             ]
           }
-        ]
-}.to_json
+        ].to_json
 end
 
 # # ----------------------------------------------------------------------
 
 def equipment
 
-content_type :json
-{
-    "text": "Hey bro!",
-    "attachments": [
+[
         {
             "text": "What equipment would you like to use?",
             "fallback": "You are unable to choose a game",
@@ -587,18 +569,14 @@ content_type :json
                 }
             ]
         }
-    ]
-}.to_json
+    ].to_json
 end
 
 # # ----------------------------------------------------------------------
 
 def workout_type
 
-content_type :json
-{
-    "text": "Hey bro!",
-    "attachments": [
+[
         {
             "text": "What workout type are you in the mood for?",
             "fallback": "You are unable to choose a game",
@@ -644,8 +622,7 @@ content_type :json
                 }
             ]
         }
-    ]
-}.to_json
+    ].to_json
 end
 
 # # ----------------------------------------------------------------------

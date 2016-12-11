@@ -185,7 +185,7 @@ post "/interactive_buttons/" do
         client.chat_postMessage(channel: channel, text: "Let's get started!", attachments: attachments, as_user: true)
 
     
-      if action_name == "muscle_group"
+      elsif action_name == "muscle_group"
         attachments =  muscle_group 
         client.chat_postMessage(channel: channel, text: "You chose to workout by muscle group!", attachments: attachments, as_user: true)
 
@@ -318,7 +318,7 @@ def respond_to_slack_event json
   #event_to_action client, event 
   
   # Hi Commands
-  if ["hi", "hey", "hello"].any? { |w| event.formatted_text.starts_with? w }  
+  if ["hi", "hey", "hello", "start", "start workout"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  intro 
     client.chat_postMessage(channel: event.channel, text: "Yo dude!", attachments: attachments, as_user: true)
 

@@ -381,248 +381,244 @@ end
 
 # ----------------------------------------------------------------------  
 
-def intro
-   [
-        {
-            "text": "If you want a more streamlined approach to your workout, start here!",
-            "fallback": "Start your cardio workout by typing `workout cardio`",
-            "callback_id": "wopr_game",
-            "color": "#3AA3E3",
-            "attachment_type": "default",
-            "actions": [
-                {
-                    "name": "start_workout",
-                    "text": "Start Workout!",
-                    "style": "danger",
-                    "type": "button",
-                    "value": "start_workout"
-                }
-            ]
-        }
-    ].to_json
-end
-
-# ----------------------------------------------------------------------
-
-def step_one
-
-[
-        {
-            "text": "How would you like to go about your workout today?",
-            "fallback": "You are unable to choose a game",
-            "callback_id": "step_one",
-            "color": "#3AA3E3",
-            "attachment_type": "default",
-            "actions": [
-                {
-                    "name": "muscle_group",
-                    "text": "Muscle Group",
-                    "type": "button",
-                    "value": "muscle_group"
-                },
-                {
-                    "name": "equipment",
-                    "text": "Equipment",
-                    "type": "button",
-                    "value": "equipment"
-                },
-                {
-                    "name": "workout_type",
-                    "text": "Workout Type",
-                    "type": "button",
-                    "value": "workout_type"
-                }
-            ]
-        }
-    ].to_json
-end
-
+# def intro
+#    [
+#         {
+#             "text": "If you want a more streamlined approach to your workout, start here!",
+#             "callback_id": "intro",
+#             "color": "#3AA3E3",
+#             "attachment_type": "default",
+#             "actions": [
+#                 {
+#                     "name": "start_workout",
+#                     "text": "Start Workout!",
+#                     "style": "danger",
+#                     "type": "button",
+#                     "value": "start_workout"
+#                 }
+#             ]
+#         }
+#     ].to_json
+# end
+#
 # # ----------------------------------------------------------------------
-
-def muscle_group
-
-[
-        {
-            "text": "Which muscle group would you like to target?",
-            "callback_id": "muscle_group",
-            "color": "#3AA3E3",
-            "attachment_type": "default",
-            "actions": [
-                {
-                    "name": "shoulders",
-                    "text": "Shoulders",
-                    "type": "button",
-                    "value": "shoulders"
-                },
-                {
-                    "name": "chest",
-                    "text": "Chest",
-                    "type": "button",
-                    "value": "chest"
-                },
-                {
-                    "name": "back",
-                    "text": "Back",
-                    "type": "button",
-                    "value": "back"
-                },
-                {
-                    "name": "abs",
-                    "text": "Abs",
-                    "type": "button",
-                    "value": "abs"
-                },
-                {
-                    "name": "arms",
-                    "text": "Arms",
-                    "type": "button",
-                    "value": "arms"
-                },
-                {
-                    "name": "glutes",
-                    "text": "Glutes",
-                    "type": "button",
-                    "value": "glutes"
-                },
-                {
-                    "name": "legs",
-                    "text": "Legs",
-                    "type": "button",
-                    "value": "legs"
-                }
-            ]
-          }
-        ].to_json
-end
-
-# # ----------------------------------------------------------------------
-
-def equipment
-
-[
-        {
-            "text": "What equipment would you like to use?",
-            "fallback": "You are unable to choose a game",
-            "callback_id": "equipment",
-            "color": "#3AA3E3",
-            "attachment_type": "default",
-            "actions": [
-                {
-                    "name": "dumbbells",
-                    "text": "Dumbbells",
-                    "type": "button",
-                    "value": "dumbbells"
-                },
-                {
-                    "name": "kettle_bell",
-                    "text": "Kettle Bell",
-                    "type": "button",
-                    "value": "kettle_bell"
-                },
-                {
-                    "name": "barbell",
-                    "text": "Barbell",
-                    "type": "button",
-                    "value": "barbell"
-                },
-                {
-                    "name": "pull_up_bar",
-                    "text": "Pull Up Bar",
-                    "type": "button",
-                    "value": "pull_up_bar"
-                },
-                {
-                    "name": "rings",
-                    "text": "Rings",
-                    "type": "button",
-                    "value": "rings"
-                },
-                {
-                    "name": "jump_rope",
-                    "text": "Jump Rope",
-                    "type": "button",
-                    "value": "jump_rope"
-                },
-                {
-                    "name": "plyo_box",
-                    "text": "Plyo Box",
-                    "type": "button",
-                    "value": "plyo_box"
-                },
-                {
-                    "name": "stability_ball",
-                    "text": "Stability Ball",
-                    "type": "button",
-                    "value": "stability_ball"
-                },
-                {
-                    "name": "medicine_ball",
-                    "text": "Medicine Ball",
-                    "type": "button",
-                    "value": "medicine_ball"
-                },
-                {
-                    "name": "bosu_ball",
-                    "text": "Bosu Ball",
-                    "type": "button",
-                    "value": "bosu_ball"
-                }
-            ]
-        }
-    ].to_json
-end
-
-# # ----------------------------------------------------------------------
-
-def workout_type
-
-[
-        {
-            "text": "What workout type are you in the mood for?",
-            "fallback": "You are unable to choose a game",
-            "callback_id": "workout_type",
-            "color": "#3AA3E3",
-            "attachment_type": "default",
-            "actions": [
-                {
-                    "name": "hiit",
-                    "text": "HIIT",
-                    "type": "button",
-                    "value": "hiit"
-                },
-                {
-                    "name": "pilates",
-                    "text": "Pilates",
-                    "type": "button",
-                    "value": "pilates"
-                },
-                {
-                    "name": "yoga",
-                    "text": "Yoga",
-                    "type": "button",
-                    "value": "yoga"
-                },
-                {
-                    "name": "tai_chi",
-                    "text": "Tai Chi",
-                    "type": "button",
-                    "value": "tai_chi"
-                },
-                {
-                    "name": "zumba",
-                    "text": "Zumba",
-                    "type": "button",
-                    "value": "zumba"
-                },
-                {
-                    "name": "aerobics",
-                    "text": "Aerobics",
-                    "type": "button",
-                    "value": "aerobics"
-                }
-            ]
-        }
-    ].to_json
-end
+#
+# def step_one
+#
+# [
+#         {
+#             "text": "How would you like to go about your workout today?",
+#             "callback_id": "step_one",
+#             "color": "#3AA3E3",
+#             "attachment_type": "default",
+#             "actions": [
+#                 {
+#                     "name": "muscle_group",
+#                     "text": "Muscle Group",
+#                     "type": "button",
+#                     "value": "muscle_group"
+#                 },
+#                 {
+#                     "name": "equipment",
+#                     "text": "Equipment",
+#                     "type": "button",
+#                     "value": "equipment"
+#                 },
+#                 {
+#                     "name": "workout_type",
+#                     "text": "Workout Type",
+#                     "type": "button",
+#                     "value": "workout_type"
+#                 }
+#             ]
+#         }
+#     ].to_json
+# end
+#
+# # # ----------------------------------------------------------------------
+#
+# def muscle_group
+#
+# [
+#         {
+#             "text": "Which muscle group would you like to target?",
+#             "callback_id": "muscle_group",
+#             "color": "#3AA3E3",
+#             "attachment_type": "default",
+#             "actions": [
+#                 {
+#                     "name": "shoulders",
+#                     "text": "Shoulders",
+#                     "type": "button",
+#                     "value": "shoulders"
+#                 },
+#                 {
+#                     "name": "chest",
+#                     "text": "Chest",
+#                     "type": "button",
+#                     "value": "chest"
+#                 },
+#                 {
+#                     "name": "back",
+#                     "text": "Back",
+#                     "type": "button",
+#                     "value": "back"
+#                 },
+#                 {
+#                     "name": "abs",
+#                     "text": "Abs",
+#                     "type": "button",
+#                     "value": "abs"
+#                 },
+#                 {
+#                     "name": "arms",
+#                     "text": "Arms",
+#                     "type": "button",
+#                     "value": "arms"
+#                 },
+#                 {
+#                     "name": "glutes",
+#                     "text": "Glutes",
+#                     "type": "button",
+#                     "value": "glutes"
+#                 },
+#                 {
+#                     "name": "legs",
+#                     "text": "Legs",
+#                     "type": "button",
+#                     "value": "legs"
+#                 }
+#             ]
+#           }
+#         ].to_json
+# end
+#
+# # # ----------------------------------------------------------------------
+#
+# def equipment
+#
+# [
+#         {
+#             "text": "What equipment would you like to use?",
+#             "callback_id": "equipment",
+#             "color": "#3AA3E3",
+#             "attachment_type": "default",
+#             "actions": [
+#                 {
+#                     "name": "dumbbells",
+#                     "text": "Dumbbells",
+#                     "type": "button",
+#                     "value": "dumbbells"
+#                 },
+#                 {
+#                     "name": "kettle_bell",
+#                     "text": "Kettle Bell",
+#                     "type": "button",
+#                     "value": "kettle_bell"
+#                 },
+#                 {
+#                     "name": "barbell",
+#                     "text": "Barbell",
+#                     "type": "button",
+#                     "value": "barbell"
+#                 },
+#                 {
+#                     "name": "pull_up_bar",
+#                     "text": "Pull Up Bar",
+#                     "type": "button",
+#                     "value": "pull_up_bar"
+#                 },
+#                 {
+#                     "name": "rings",
+#                     "text": "Rings",
+#                     "type": "button",
+#                     "value": "rings"
+#                 },
+#                 {
+#                     "name": "jump_rope",
+#                     "text": "Jump Rope",
+#                     "type": "button",
+#                     "value": "jump_rope"
+#                 },
+#                 {
+#                     "name": "plyo_box",
+#                     "text": "Plyo Box",
+#                     "type": "button",
+#                     "value": "plyo_box"
+#                 },
+#                 {
+#                     "name": "stability_ball",
+#                     "text": "Stability Ball",
+#                     "type": "button",
+#                     "value": "stability_ball"
+#                 },
+#                 {
+#                     "name": "medicine_ball",
+#                     "text": "Medicine Ball",
+#                     "type": "button",
+#                     "value": "medicine_ball"
+#                 },
+#                 {
+#                     "name": "bosu_ball",
+#                     "text": "Bosu Ball",
+#                     "type": "button",
+#                     "value": "bosu_ball"
+#                 }
+#             ]
+#         }
+#     ].to_json
+# end
+#
+# # # ----------------------------------------------------------------------
+#
+# def workout_type
+#
+# [
+#         {
+#             "text": "What workout type are you in the mood for?",
+#             "callback_id": "workout_type",
+#             "color": "#3AA3E3",
+#             "attachment_type": "default",
+#             "actions": [
+#                 {
+#                     "name": "hiit",
+#                     "text": "HIIT",
+#                     "type": "button",
+#                     "value": "hiit"
+#                 },
+#                 {
+#                     "name": "pilates",
+#                     "text": "Pilates",
+#                     "type": "button",
+#                     "value": "pilates"
+#                 },
+#                 {
+#                     "name": "yoga",
+#                     "text": "Yoga",
+#                     "type": "button",
+#                     "value": "yoga"
+#                 },
+#                 {
+#                     "name": "tai_chi",
+#                     "text": "Tai Chi",
+#                     "type": "button",
+#                     "value": "tai_chi"
+#                 },
+#                 {
+#                     "name": "zumba",
+#                     "text": "Zumba",
+#                     "type": "button",
+#                     "value": "zumba"
+#                 },
+#                 {
+#                     "name": "aerobics",
+#                     "text": "Aerobics",
+#                     "type": "button",
+#                     "value": "aerobics"
+#                 }
+#             ]
+#         }
+#     ].to_json
+# end
 
 # # ----------------------------------------------------------------------

@@ -318,12 +318,12 @@ def respond_to_slack_event json
   # Hi Commands
   if ["hi", "hey", "hello"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  get_hello_buttons 
-    client.chat_postMessage(channel: event.channel, text: "Hey bro!", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "Yo dude!", attachments: attachments, as_user: true)
 
 
   elsif ["muscle group"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  muscle_group 
-    client.chat_postMessage(channel: event.channel, text: "Hey bro!", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "Hey man!", attachments: attachments, as_user: true)
 
   elsif ["upper body"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  upper_body 
@@ -331,11 +331,12 @@ def respond_to_slack_event json
 
   elsif ["lower body"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  lower_body 
-    client.chat_postMessage(channel: event.channel, text: "Hey bro!", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "Yo!", attachments: attachments, as_user: true)
 
     # Handle the Help commands
   elsif event.formatted_text.include? "help"
-    client.chat_postMessage(channel: event.channel, text: "help text", as_user: true)
+    attachments =  intro
+    client.chat_postMessage(channel: event.channel, text: "Hey hey hey!", attachments: attachments, as_user: true)
 
 
   end 
@@ -392,25 +393,25 @@ end
 
 # ----------------------------------------------------------------------  
 
-# def intro
-#    [
-#         {
-#             "text": "If you want a more streamlined approach to your workout, start here!",
-#             "callback_id": "intro",
-#             "color": "#3AA3E3",
-#             "attachment_type": "default",
-#             "actions": [
-#                 {
-#                     "name": "start_workout",
-#                     "text": "Start Workout!",
-#                     "style": "danger",
-#                     "type": "button",
-#                     "value": "start_workout"
-#                 }
-#             ]
-#         }
-#     ].to_json
-# end
+def intro
+   [
+        {
+            "text": "If you want a more streamlined approach to your workout, start here!",
+            "callback_id": "intro",
+            "color": "#3AA3E3",
+            "attachment_type": "default",
+            "actions": [
+                {
+                    "name": "start_workout",
+                    "text": "Start Workout!",
+                    "style": "danger",
+                    "type": "button",
+                    "value": "start_workout"
+                }
+            ]
+        }
+    ].to_json
+end
 #
 # # ----------------------------------------------------------------------
 #
@@ -481,7 +482,7 @@ def lower_body
 
 [
         {
-            "text": "What's your pick bro?",
+            "text": "What's your pick?",
             "callback_id": "lower_body",
             "color": "#3AA3E3",
             "attachment_type": "default",

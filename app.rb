@@ -182,7 +182,9 @@ post "/interactive_buttons/" do
     puts "found match "
     if action_name == "muscle_group"
 
-      replace_message += "Here's a body part workout."
+      replace_message += "What are you in the mood for?"
+      attachments =  muscle_group 
+      client.chat_postMessage(channel: channel, text: "Yo dude!", attachments: attachments, as_user: true)
 
       client.chat_postMessage(channel: channel, text: "You chose muscle_group.", as_user: true)
         
@@ -320,7 +322,6 @@ def respond_to_slack_event json
     attachments =  get_hello_buttons 
     client.chat_postMessage(channel: event.channel, text: "Yo dude!", attachments: attachments, as_user: true)
 
-
   elsif ["muscle group"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  muscle_group 
     client.chat_postMessage(channel: event.channel, text: "Hey man!", attachments: attachments, as_user: true)
@@ -397,7 +398,7 @@ def intro
    [
         {
             "mrkdwn": true,
-            "text": "I'm BotBarbello, your fitness buddy! We're going to have a blast!\n\nHere's the lingo I understand brother -\n\n\nType /inspire to be inspired by a smashing quote from an ultra famous celebrity bodybuilder you probably adore!\n\n\n--------------------\n\n\nType /workout followed by cardio, dumbbell or barbell for a quick workout video belonging to that category.\n\n\n--------------------\n\n\nYou can also ask me for a video on any of the following by simply typing\nshoulders\nchest\nback\nabs\narms\nglutes\nlegs.\n\n\n--------------------\n\n\nIf you want a more streamlined approach to your workout, start here!",
+            "text": "I'm BotBarbello, your fitness buddy! We're going to have a blast!\n\nHere's the lingo I understand brother -\n\n\nType /inspire to be inspired by a smashing quote from an ultra famous celebrity bodybuilder you probably adore!\n\n\n--------------------\n\n\nType /workout followed by cardio, dumbbell or barbell for a quick workout video belonging to that category.\n\n\n--------------------\n\n\nYou can also ask me for a video on any of the following by simply typing -\nshoulders\nchest\nback\nabs\narms\nglutes\nlegs\n\n\n--------------------\n\n\nIf you want a more streamlined approach to your workout, start here!",
             "callback_id": "intro",
             "color": "#3AA3E3",
             "attachment_type": "default",

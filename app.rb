@@ -177,46 +177,40 @@ post "/interactive_buttons/" do
   
   if call_back == "intro"
 
-    replace_message = "Cool!" 
-    puts "found match "
+      replace_message = "Cool!" 
+      puts "found match "
     
-    if action_name == "start_workout"
-      attachments =  step_one 
-      client.chat_postMessage(channel: channel, text: "Let's get started!", attachments: attachments, as_user: true)
+      if action_name == "start_workout"
+        attachments =  step_one 
+        client.chat_postMessage(channel: channel, text: "Let's get started!", attachments: attachments, as_user: true)
+
     
-    else
-      replace_message += "Try typing 'start workout'"
-      client.chat_postMessage(channel: channel, text: "Let's do this together bro!", as_user: true)
-    end
-    
-  elsif  call_back == "step_one"
-    
-    if action_name == "muscle_group"
-      attachments =  muscle_group 
-      client.chat_postMessage(channel: channel, text: "You chose to workout by muscle group!", attachments: attachments, as_user: true)
+      if action_name == "muscle_group"
+        attachments =  muscle_group 
+        client.chat_postMessage(channel: channel, text: "You chose to workout by muscle group!", attachments: attachments, as_user: true)
 
         
-    elsif action_name == "equipment"
-      attachments =  equipment
-      client.chat_postMessage(channel: channel, text: "You chose to workout by equipment!", as_user: true)
+      elsif action_name == "equipment"
+        attachments =  equipment
+        client.chat_postMessage(channel: channel, text: "You chose to workout by equipment!", as_user: true)
       
       
-    elsif action_name == "workout_type"
-      attachments =  workout_type
-      client.chat_postMessage(channel: channel, text: "You chose to workout by workout type!", as_user: true)
+      elsif action_name == "workout_type"
+        attachments =  workout_type
+        client.chat_postMessage(channel: channel, text: "You chose to workout by workout type!", as_user: true)
       
       
-    else
-      replace_message += "Try typing 'start workout'"
-      client.chat_postMessage(channel: channel, text: "Let's do this together bro!", as_user: true)
-    end
+      else
+        replace_message += "Try typing 'start workout'"
+        client.chat_postMessage(channel: channel, text: "Let's do this together bro!", as_user: true)
+      end
 
-    {text: replace_message, replace_original: true }.to_json
+      {text: replace_message, replace_original: true }.to_json
     
   else
     200
-    
   end
+  
 end 
 
 # ----------------------------------------------------------------------

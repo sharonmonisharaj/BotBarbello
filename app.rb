@@ -175,12 +175,18 @@ post "/interactive_buttons/" do
   
   client = team.get_client
   
-  if call_back == "hello_buttons"
+  if call_back == "step_one"
     
     replace_message = "Good choice!"
     
     puts "found match "
-    if action_name == "muscle_group"
+    
+    if action_name == "intro"
+      attachments =  step_one 
+      client.chat_postMessage(channel: channel, attachments: attachments, as_user: true)
+      
+      
+    elsif action_name == "muscle_group"
       attachments =  muscle_group 
       client.chat_postMessage(channel: channel, attachments: attachments, as_user: true)
 
@@ -316,7 +322,7 @@ def respond_to_slack_event json
   
   # Hi Commands
   if ["hi", "hey", "hello"].any? { |w| event.formatted_text.starts_with? w }  
-    attachments =  get_hello_buttons 
+    attachments =  intro 
     client.chat_postMessage(channel: event.channel, text: "Yo dude!", attachments: attachments, as_user: true)
 
   elsif ["muscle group"].any? { |w| event.formatted_text.starts_with? w }  
@@ -342,19 +348,18 @@ end
 
 # ----------------------------------------------------------------------  
 
-def get_hello_buttons
+def step_one
   
   [
       {
           "text": "How would you like to go about your workout today?",
-          "fallback": "You are unable to choose a game",
-          "callback_id": "hello_buttons",
+          "callback_id": "step_one",
           "color": "#3AA3E3",
           "attachment_type": "default",
           "actions": [
               {
                   "name": "muscle_group",
-                  "text": "Body Part",
+                  "text": "Muscle Group",
                   "type": "button",
                   "value": "muscle_group"
               },
@@ -413,40 +418,6 @@ def intro
 end
 #
 # # ----------------------------------------------------------------------
-#
-# def step_one
-#
-# [
-#         {
-#             "text": "How would you like to go about your workout today?",
-#             "callback_id": "step_one",
-#             "color": "#3AA3E3",
-#             "attachment_type": "default",
-#             "actions": [
-#                 {
-#                     "name": "muscle_group",
-#                     "text": "Muscle Group",
-#                     "type": "button",
-#                     "value": "muscle_group"
-#                 },
-#                 {
-#                     "name": "equipment",
-#                     "text": "Equipment",
-#                     "type": "button",
-#                     "value": "equipment"
-#                 },
-#                 {
-#                     "name": "workout_type",
-#                     "text": "Workout Type",
-#                     "type": "button",
-#                     "value": "workout_type"
-#                 }
-#             ]
-#         }
-#     ].to_json
-# end
-#
-# # # ----------------------------------------------------------------------
 #
 def muscle_group
 

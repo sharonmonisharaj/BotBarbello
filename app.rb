@@ -175,7 +175,7 @@ post "/interactive_buttons/" do
   
   client = team.get_client
   
-  if call_back == "intro"
+ # if call_back == "intro"
 
       replace_message = "Cool!" 
       puts "found match "
@@ -184,13 +184,9 @@ post "/interactive_buttons/" do
         replace_message += "Cool!" 
         attachments =  step_one 
         client.chat_postMessage(channel: channel, text: "Let's get started!", attachments: attachments, as_user: true)
-      end
-      
-    elsif call_back == "start_workout"
-      replace_message = "Cool!"
 
     
-      if action_name == "muscle_group"
+      elsif action_name == "muscle_group"
         replace_message += "Cool!" 
         attachments =  muscle_group 
         client.chat_postMessage(channel: channel, text: "You chose to workout by muscle group!", attachments: attachments, as_user: true)
@@ -215,9 +211,9 @@ post "/interactive_buttons/" do
 
       {text: replace_message, replace_original: true }.to_json
     
-  else
-    200
-  end
+  # else
+  #   200
+  # end
   
 end 
 

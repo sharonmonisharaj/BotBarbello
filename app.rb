@@ -267,6 +267,41 @@ post "/workout/"  do
 end
 
 # ----------------------------------------------------------------------
+
+post "/inspire/"  do
+  
+  puts params.to_s
+
+  slack_token = "Upm2rHVBhulKzKd3MsKYP8Cz"
+
+  if slack_token == params[:token]
+    
+    channel_name = params[:channel_name]
+    user_name = params[:user_name]
+    text = params[:text]
+    response_url = params[:response_url]
+
+    
+     if text.downcase.strip == "ali"
+       ali = BodybuilderQuote.all.where( name: "Muhammad Ali" )
+       random = ali.sample(1).first
+       formatted_message = random.quote + "\n - " + random.name + "\n" + random.photo_url
+    
+   else 
+     "I'm sorry, it looks like I can't help you with that at the moment. Please enter one of the following\n\n/workout dumbbell\n/workout barbell\n/workout cardio"
+   end
+
+    content_type :json
+  
+    {text: formatted_message, response_type: "in_channel" }.to_json
+
+  else
+    content_type :json
+    {text: "Invalid Request", response_type: "ephemeral" }.to_json
+
+  end
+end
+# ----------------------------------------------------------------------
 #     ERRORS
 # ----------------------------------------------------------------------
 

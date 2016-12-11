@@ -504,10 +504,9 @@ content_type :json
                     "type": "button",
                     "value": "legs"
                 }
-                }
             ]
-        }
-    ]
+          }
+        ]
 }.to_json
 end
 
@@ -586,7 +585,6 @@ content_type :json
                     "type": "button",
                     "value": "bosu_ball"
                 }
-                }
             ]
         }
     ]
@@ -643,7 +641,6 @@ content_type :json
                     "text": "Aerobics",
                     "type": "button",
                     "value": "aerobics"
-                }
                 }
             ]
         }

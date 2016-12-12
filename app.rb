@@ -579,7 +579,7 @@ def respond_to_slack_event json
     
     
    elsif ["shoulder"].any? { |w| event.formatted_text.starts_with? w } 
-     client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Shoulders").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Shoulders").sample.url}", attachments: attachments, as_user: true)
+     client.chat_postMessage(channel: event.channel, text: "*#{BodyPart.all.where(body_part: "Shoulders").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Shoulders").sample.url}", as_user: true)
 
 
     # Handle the Help commands

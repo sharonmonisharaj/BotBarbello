@@ -410,114 +410,114 @@ BodyPart.delete_all
 #MotivationalQuote.reset_autoincrement
 
 BodyPart.create!([{
-  type: "Shoulders",
-  name: "Shoulder-Gains Workout with Jake Alvarez",
+  body_part: "Shoulders",
+  workout_name: "Shoulder-Gains Workout with Jake Alvarez",
   url: "https://www.youtube.com/watch?v=6EqI5V8AUp8"
 },
 {
-  type: "Shoulders",
-  name: "Complete Shoulder Workout - Front, Side, & Rear Delts",
+  body_part: "Shoulders",
+  workout_name: "Complete Shoulder Workout - Front, Side, & Rear Delts",
   url: "https://www.youtube.com/watch?v=UzsDPUJWInw"
 },
 {
-  type: "Shoulders",
-  name: "Massive Bowling Ball Shoulder Workout",
+  body_part: "Shoulders",
+  workout_name: "Massive Bowling Ball Shoulder Workout",
   url: "https://www.youtube.com/watch?v=uXzwzBg-6xk"
 },
 
 {
-  type: "Chest",
-  name: "3 Highly Effective Chest Workout Techniques for a Bigger Chest",
+  body_part: "Chest",
+  workout_name: "3 Highly Effective Chest Workout Techniques for a Bigger Chest",
   url: "https://www.youtube.com/watch?v=blUwlrFpLiU"
 },
 {
-  type: "Chest",
-  name: "Top 5 Chest Exercises - Rob Riches",
+  body_part: "Chest",
+  workout_name: "Top 5 Chest Exercises - Rob Riches",
   url: "https://www.youtube.com/watch?v=SK9LNnBbWTc"
 },
 {
-  type: "Chest",
-  name: "Killer at Home 10-minute Chest Workout",
+  body_part: "Chest",
+  workout_name: "Killer at Home 10-minute Chest Workout",
   url: "https://www.youtube.com/watch?v=Bi1IRzJIoAo"
 },
 
 {
-  type: "Back",
-  name: "5 Moves To A Bigger, Stronger Back with Jake Alvarez",
+  body_part: "Back",
+  workout_name: "5 Moves To A Bigger, Stronger Back with Jake Alvarez",
   url: "https://www.youtube.com/watch?v=mcCg_ycMhlA"
 },
 {
-  type: "Back",
-  name: "Complete Back Workout - Width, Density, Strength!",
+  body_part: "Back",
+  workout_name: "Complete Back Workout - Width, Density, Strength!",
   url: "https://www.youtube.com/watch?v=jv8ylu5CQik"
 },
 {
-  type: "Back",
-  name: "5 Back Exercises for Mass",
+  body_part: "Back",
+  workout_name: "5 Back Exercises for Mass",
   url: "https://www.youtube.com/watch?v=F7-cBttLavU"
 },
 
 {
-  type: "Abs",
-  name: "Extreme Six Pack Abs Workout",
+  body_part: "Abs",
+  workout_name: "Extreme Six Pack Abs Workout",
   url: "https://www.youtube.com/watch?v=cfY_4m3RVRc"
 },
 {
-  type: "Abs",
-  name: "12 Min 6 Pack Ab Workout at Home",
+  body_part: "Abs",
+  workout_name: "12 Min 6 Pack Ab Workout at Home",
   url: "https://www.youtube.com/watch?v=Jm_9n_IUk7s"
 },
 {
-  type: "Abs",
-  name: "A Simple Daily Ab Workout",
+  body_part: "Abs",
+  workout_name: "A Simple Daily Ab Workout",
   url: "https://www.youtube.com/watch?v=IwM0NGF-l3c"
 },
 
 {
-  type: "Arms",
-  name: "Complete Arm Workout with Zach Zeiler",
+  body_part: "Arms",
+  workout_name: "Complete Arm Workout with Zach Zeiler",
   url: "https://www.youtube.com/watch?v=y-pjWIzmxiw"
 },
 {
-  type: "Arms",
-  name: "Calum Von Moger's Old School Bodybuilding Arms Workout",
+  body_part: "Arms",
+  workout_name: "Calum Von Moger's Old School Bodybuilding Arms Workout",
   url: "https://www.youtube.com/watch?v=Zb-K7YAzAZM"
 },
 {
-  type: "Arms",
-  name: "Complete Arm and Shoulder Workout",
+  body_part: "Arms",
+  workout_name: "Complete Arm and Shoulder Workout",
   url: "https://www.youtube.com/watch?v=SsN5hWqryjw"
 },
 
 {
-  type: "Glutes",
-  name: "Glute Activation & Strengthening Exercises",
+  body_part: "Glutes",
+  workout_name: "Glute Activation & Strengthening Exercises",
   url: "https://www.youtube.com/watch?v=zo_H46Pzuq4"
 },
 {
-  type: "Glutes",
-  name: "Glute Activation in three steps",
+  body_part: "Glutes",
+  workout_name: "Glute Activation in three steps",
   url: "https://www.youtube.com/watch?v=C0j_KxV6I1k"
 },
 {
-  type: "Glutes",
-  name: "Killer Glutes Workout Routine",
+  body_part: "Glutes",
+  workout_name: "Killer Glutes Workout Routine",
   url: "https://www.youtube.com/watch?v=rmxnTrEppJI"
 },
 
 {
-  type: "Legs",
-  name: "Steve Cook Leg Workout",
+  body_part: "Legs",
+  workout_name: "Steve Cook Leg Workout",
   url: "https://www.youtube.com/watch?v=Ha4tOOEMMQI"
 },
 {
-  type: "Legs",
-  name: "Complete Leg Workout Routine at the Gym",
+  body_part: "Legs",
+  workout_name: "Complete Leg Workout Routine at the Gym",
   url: "https://www.youtube.com/watch?v=PAti3uGRkb8"
 },
 {
-  type: "Legs",
-  name: "The Big Tree Trunk Leg Workout",
+  body_part: "Legs",
+  workout_name: "The Big Tree Trunk Leg Workout",
   url: "https://www.youtube.com/watch?v=krdXpT2I_zw"
 }])
 
@@ -530,50 +530,50 @@ Tool.delete_all
 #MotivationalQuote.reset_autoincrement
 
 Tool.create!([{
-  type: "Kettle Bell",
-  name: "15 Minute Kettlebell Workout Video",
+  equipment: "Kettle Bell",
+  workout_name: "15 Minute Kettlebell Workout Video",
   url: "https://www.youtube.com/watch?v=gcIFAgnOL9E"
 },
 {
-  type: "Kettle Bell",
-  name: "The 7 Most Important Kettlebell Exercises",
+  equipment: "Kettle Bell",
+  workout_name: "The 7 Most Important Kettlebell Exercises",
   url: "https://www.youtube.com/watch?v=RjnyMfZb00M"
 },
 {
-  type: "Kettle Bell",
-  name: "Spartan Kettlebell Workout",
+  equipment: "Kettle Bell",
+  workout_name: "Spartan Kettlebell Workout",
   url: "https://www.youtube.com/watch?v=bMxwbCAIhOw"
 },
 
 {
-  type: "Stability Ball",
-  name: "Challenging Exercise Ball Ab Workout",
+  equipment: "Stability Ball",
+  workout_name: "Challenging Exercise Ball Ab Workout",
   url: "https://www.youtube.com/watch?v=gwwNST1hwgI"
 },
 {
-  type: "Stability Ball",
-  name: "EXTREME Exercise Ball Breakdown Workout!",
+  equipment: "Stability Ball",
+  workout_name: "EXTREME Exercise Ball Breakdown Workout!",
   url: "https://www.youtube.com/watch?v=69t3wr4AqN8"
 },
 {
-  type: "Stability Ball",
-  name: "20 Min Exercise Ball Workout",
+  equipment: "Stability Ball",
+  workout_name: "20 Min Exercise Ball Workout",
   url: "https://www.youtube.com/watch?v=OdKgw__xcHc"
 },
 
 {
-  type: "Medicine Ball",
-  name: "Medicine Ball Home Workout",
+  equipment: "Medicine Ball",
+  workout_name: "Medicine Ball Home Workout",
   url: "https://www.youtube.com/watch?v=BwtaEAr8qI0"
 },
 {
-  type: "Medicine Ball",
-  name: "Burn More Belly Fat With This Medicine Ball Ab Workout",
+  equipment: "Medicine Ball",
+  workout_name: "Burn More Belly Fat With This Medicine Ball Ab Workout",
   url: "https://www.youtube.com/watch?v=px-Dr102WWE"
 },
 {
-  type: "Medicine Ball",
-  name: "Total Body Medicine Ball Workout",
+  equipment: "Medicine Ball",
+  workout_name: "Total Body Medicine Ball Workout",
   url: "https://www.youtube.com/watch?v=nV3A5F28AB8"
 }])
 
@@ -586,82 +586,82 @@ WorkoutType.delete_all
 #MotivationalQuote.reset_autoincrement
 
 WorkoutType.create!([{
-  type: "HIIT",
-  name: "Brutal HIIT Ladder Workout - 20 Minute HIIT Workout at Home",
+  workout_type: "HIIT",
+  workout_name: "Brutal HIIT Ladder Workout - 20 Minute HIIT Workout at Home",
   url: "https://www.youtube.com/watch?v=cZnsLVArIt8"
 },
 {
-  type: "HIIT",
-  name: "HIIT the Ground Running - 33 Min High Intensity Interval Training for Endurance & Total Body Toning",
+  workout_type: "HIIT",
+  workout_name: "HIIT the Ground Running - 33 Min High Intensity Interval Training for Endurance & Total Body Toning",
   url: "https://www.youtube.com/watch?v=H1GDPNYTpqA"
 },
 {
-  type: "HIIT",
-  name: "20-Min HIIT Workout Boot Camp - High Intensity Training With No Equipment",
+  workout_type: "HIIT",
+  workout_name: "20-Min HIIT Workout Boot Camp - High Intensity Training With No Equipment",
   url: "https://www.youtube.com/watch?v=1y0Pqjnoow0"
 },
 
 {
-  type: "Pilates",
-  name: "25 Minute Pilates Abs Class | Total Body Core Workout",
+  workout_type: "Pilates",
+  workout_name: "25 Minute Pilates Abs Class | Total Body Core Workout",
   url: "https://www.youtube.com/watch?v=6zi11K4wwds"
 },
 {
-  type: "Pilates",
-  name: "Pilates Core Abdominal Workout ",
+  workout_type: "Pilates",
+  workout_name: "Pilates Core Abdominal Workout ",
   url: "https://www.youtube.com/watch?v=iHmH4K4wL4g"
 },
 {
-  type: "Pilates",
-  name: "10 min Pilates for Total Beginners Workout",
+  workout_type: "Pilates",
+  workout_name: "10 min Pilates for Total Beginners Workout",
   url: "https://www.youtube.com/watch?v=2wSQqRUtZuM"
 },
 
 {
-  type: "Yoga",
-  name: "10 Min Yoga for Men Beginner Routine",
+  workout_type: "Yoga",
+  workout_name: "10 Min Yoga for Men Beginner Routine",
   url: "https://www.youtube.com/watch?v=2ymyRJwFtV8"
 }, 
 {
-  type: "Yoga",
-  name: "Total Body Yoga Workout With Tim Senesi",
+  workout_type: "Yoga",
+  workout_name: "Total Body Yoga Workout With Tim Senesi",
   url: "https://www.youtube.com/watch?v=rQaENEaAHqc"
 },
 {
-  type: "Yoga",
-  name: "5 Key Yoga Poses For Men",
+  workout_type: "Yoga",
+  workout_name: "5 Key Yoga Poses For Men",
   url: "https://www.youtube.com/watch?v=NFOuMSejnO4"
 },
  
 {
-  type: "Tai Chi",
-  name: "10 Tai Chi Moves for Beginners - 14 Minute Daily Taiji Routine",
+  workout_type: "Tai Chi",
+  workout_name: "10 Tai Chi Moves for Beginners - 14 Minute Daily Taiji Routine",
   url: "https://www.youtube.com/watch?v=6w7IS8_UzHM"
 },
 {
-  type: "Tai Chi",
-  name: "Daily Tai Chi - 8-minute exercise",
+  workout_type: "Tai Chi",
+  workout_name: "Daily Tai Chi - 8-minute exercise",
   url: "https://www.youtube.com/watch?v=PNtWqDxwwMg"
 },
 {
-  type: "Tai Chi",
-  name: "10 Minute Tai Chi Lesson",
+  workout_type: "Tai Chi",
+  workout_name: "10 Minute Tai Chi Lesson",
   url: "https://www.youtube.com/watch?v=T4uOAcQr_JA"
 },
 
 {
-  type: "Aerobics",
-  name: "20 Minute Aerobics Workout for Weight Loss",
+  workout_type: "Aerobics",
+  workout_name: "20 Minute Aerobics Workout for Weight Loss",
   url: "https://www.youtube.com/watch?v=141jmEQznK0"
 },
 {
-  type: "Aerobics",
-  name: "Low Impact 30 minute cardio workout- Beginner/intermediate",
+  workout_type: "Aerobics",
+  workout_name: "Low Impact 30 minute cardio workout- Beginner/intermediate",
   url: "https://www.youtube.com/watch?v=50kH47ZztHs"
 },
 {
-  type: "Aerobics",
-  name: "25 Min Beginner Cardio Workout at Home",
+  workout_type: "Aerobics",
+  workout_name: "25 Min Beginner Cardio Workout at Home",
   url: "https://www.youtube.com/watch?v=-yMkmCGkwXo"
 }])
 

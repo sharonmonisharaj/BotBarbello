@@ -649,7 +649,7 @@ elsif ["medicine ball"].any? { |w| event.formatted_text.starts_with? w }
     # Handle the Help commands
   elsif event.formatted_text.include? "help"
     attachments =  intro
-        client.chat_postMessage(channel: event.channel, text: "*Stuck, are we? Don't sweat it!*\n\n*Here are some tips!*\n\n\n- Type `/inspire` to be inspired by a smashing quote from an ultra famous celebrity bodybuilder you probably adore!\n- Type `/beforeafter` for inspiring before and after photos of famous bodybuilders!\n- Type `/workout` for a quick workout video handpicked by yours truly!\n- Type `help` if you're stuck!\n\n\n*Demand a workout video for any of the following by simply typing -*\n`shoulders` | `chest` | `back` | `abs` | `arms` | `glutes` | `legs`\n`dumbbells` | `kettle bell` | `barbell` | `stability ball` | `medicine ball`\n`interval training` | `pilates` | `yoga` | `tai chi` | `aerobics`\n", attachments: attachments, as_user: true)
+        client.chat_postMessage(channel: event.channel, text: "*Stuck, are we? Don't sweat it!*\n\n*Here are some tips!*\n\n- Type `/inspire` to be inspired by a smashing quote from an ultra famous celebrity bodybuilder you probably adore!\n- Type `/beforeafter` for inspiring before and after photos of famous bodybuilders!\n- Type `/workout` for a quick workout video handpicked by yours truly!\n- Type `help` if you're stuck!\n\n\n*Demand a workout video for any of the following by simply typing -*\n`shoulders` | `chest` | `back` | `abs` | `arms` | `glutes` | `legs`\n`dumbbells` | `kettle bell` | `barbell` | `stability ball` | `medicine ball`\n`interval training` | `pilates` | `yoga` | `tai chi` | `aerobics`\n", attachments: attachments, as_user: true)
 
 
   end 

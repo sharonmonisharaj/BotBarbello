@@ -580,6 +580,30 @@ def respond_to_slack_event json
     
    elsif ["shoulder"].any? { |w| event.formatted_text.starts_with? w } 
      client.chat_postMessage(channel: event.channel, text: "*#{BodyPart.all.where(body_part: "Shoulders").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Shoulders").sample.url}", as_user: true)
+     
+     
+   elsif ["chest"].any? { |w| event.formatted_text.starts_with? w } 
+     client.chat_postMessage(channel: event.channel, text: "*#{BodyPart.all.where(body_part: "Chest").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Chest").sample.url}", attachments: attachments, as_user: true)
+     
+     
+   elsif ["back"].any? { |w| event.formatted_text.starts_with? w } 
+     client.chat_postMessage(channel: event.channel, text: "*#{BodyPart.all.where(body_part: "Back").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Back").sample.url}", attachments: attachments, as_user: true)
+     
+     
+   elsif ["abs"].any? { |w| event.formatted_text.starts_with? w } 
+     client.chat_postMessage(channel: event.channel, text: "*#{BodyPart.all.where(body_part: "Abs").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Abs").sample.url}", attachments: attachments, as_user: true)
+     
+     
+   elsif ["arms"].any? { |w| event.formatted_text.starts_with? w } 
+    client.chat_postMessage(channel: event.channel, text: "*#{BodyPart.all.where(body_part: "Arms").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Arms").sample.url}", attachments: attachments, as_user: true)
+     
+     
+   elsif ["glutes"].any? { |w| event.formatted_text.starts_with? w } 
+     client.chat_postMessage(channel: event.channel, text: "*#{BodyPart.all.where(body_part: "Glutes").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Glutes").sample.url}", attachments: attachments, as_user: true)
+     
+     
+   elsif ["legs"].any? { |w| event.formatted_text.starts_with? w } 
+     client.chat_postMessage(channel: event.channel, text: "*#{BodyPart.all.where(body_part: "Legs").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Legs").sample.url}", attachments: attachments, as_user: true)
 
 
     # Handle the Help commands

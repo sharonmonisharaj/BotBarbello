@@ -265,6 +265,25 @@ post "/interactive_buttons/" do
       end
  
 # ----------
+
+  elsif call_back == "lower_body"
+             replace_message = "Cool!" 
+             puts "found match "
+                 
+      if action_name == "glutes"
+        replace_message = "Cool!" 
+       client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Glutes").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Glutes").sample.url}", attachments: attachments, as_user: true)
+     
+   elsif action_name == "legs"
+     replace_message = "Cool!" 
+    client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Legs").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Legs").sample.url}", attachments: attachments, as_user: true)
+      
+      else
+        replace_message = "Try typing 'start workout'"
+        client.chat_postMessage(channel: channel, text: "Let's do this together bro!", as_user: true)
+      end
+ 
+# ----------
   
   elsif call_back == "equipment"
              replace_message = "Cool!" 

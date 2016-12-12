@@ -331,13 +331,23 @@ post "/interactive_buttons/" do
                  
       if action_name == "shoulder"
         replace_message = "Cool!" 
-        workout = BodyPart.all.where( body_part: "Shoulders" )
-        random = workout.sample
-       client.chat_postMessage(channel: channel, text: "*#{random.workout_name}*\n#{random.url}", attachments: attachments, as_user: true)
+       client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Shoulders").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Shoulders").sample.url}", attachments: attachments, as_user: true)
         
       elsif action_name == "chest"
         replace_message = "Cool!" 
        client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Chest").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Chest").sample.url}", attachments: attachments, as_user: true)
+       
+     elsif action_name == "back"
+       replace_message = "Cool!" 
+      client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Back").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Back").sample.url}", attachments: attachments, as_user: true)
+      
+    elsif action_name == "abs"
+      replace_message = "Cool!" 
+     client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Abs").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Abs").sample.url}", attachments: attachments, as_user: true)
+     
+   elsif action_name == "arms"
+     replace_message = "Cool!" 
+    client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Arms").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Arms").sample.url}", attachments: attachments, as_user: true)
       
       else
         replace_message = "Try typing 'start workout'"

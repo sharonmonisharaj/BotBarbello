@@ -290,12 +290,12 @@ post "/interactive_buttons/" do
       elsif action_name == "equipment"
         replace_message += "Cool!" 
         attachments =  equipment
-        client.chat_postMessage(channel: channel, text: "You chose to workout by equipment!", as_user: true)     
+        client.chat_postMessage(channel: channel, text: "You chose to workout by equipment!", attachments: attachments, as_user: true)     
       
       elsif action_name == "workout_type"
         replace_message += "Cool!" 
         attachments =  workout_type
-        client.chat_postMessage(channel: channel, text: "You chose to workout by workout type!", as_user: true)
+        client.chat_postMessage(channel: channel, text: "You chose to workout by workout type!", attachments: attachments, as_user: true)
         
       else
         replace_message = "Try typing 'start workout'"

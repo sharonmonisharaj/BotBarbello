@@ -546,7 +546,7 @@ def respond_to_slack_event json
   # Action commands
   if ["hi", "hey", "hello", "start", "start workout"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  intro 
-    client.chat_postMessage(channel: event.channel, text: "Yo dude!", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "Yo dude! I'm *BotBarbello*, your fitness buddy! We're going to have a blast!\n\nHere's the lingo I understand brother -\n\n\nType `/inspire` to be inspired by a smashing quote from an ultra famous celebrity bodybuilder you probably adore!\n\n\n--------------------\n\n\nType /workout followed by cardio, dumbbell or barbell for a quick workout video belonging to that category.\n\n\n--------------------\n\n\nYou can also ask me for a video on any of the following by simply typing -\nshoulders\nchest\nback\nabs\narms\nglutes\nlegs\n\n\n--------------------\n\n\n", attachments: attachments, as_user: true)
 
 
   elsif ["muscle group"].any? { |w| event.formatted_text.starts_with? w }  
@@ -610,11 +610,10 @@ end
 # ----------------------------------------------------------------------  
 
 def intro
-  {text: "*Tadaaa!!!*"}.to_json
    [
         {
             markdwn: true,
-            text: "I'm *BotBarbello*, your fitness buddy! We're going to have a blast!\n\nHere's the lingo I understand brother -\n\n\nType `/inspire` to be inspired by a smashing quote from an ultra famous celebrity bodybuilder you probably adore!\n\n\n--------------------\n\n\nType /workout followed by cardio, dumbbell or barbell for a quick workout video belonging to that category.\n\n\n--------------------\n\n\nYou can also ask me for a video on any of the following by simply typing -\nshoulders\nchest\nback\nabs\narms\nglutes\nlegs\n\n\n--------------------\n\n\nIf you want a more streamlined approach to your workout, start here!",
+            text: "If you want a more streamlined approach to your workout, start here!",
             "callback_id": "intro",
             "color": "#3AA3E3",
             "attachment_type": "default",

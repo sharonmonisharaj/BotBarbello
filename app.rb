@@ -324,6 +324,29 @@ post "/interactive_buttons/" do
       end
  
 # ----------
+
+  elsif call_back == "upper_body"
+             replace_message = "Cool!" 
+             puts "found match "
+                 
+      if action_name == "shoulder"
+        replace_message = "Cool!" 
+        workout = BodyPart.all.where( body_part: "Shoulders" )
+        random = workout.sample
+       client.chat_postMessage(channel: channel, text: "*#{random.name}*\n#{random.url}", as_user: true)
+        
+      elsif action_name == "chest"
+        replace_message = "Cool!" 
+        workout = BodyPart.all.where( body_part: "Chest" )
+        random = workout.sample
+       client.chat_postMessage(channel: channel, text: "*#{random.name}*\n#{random.url}", as_user: true)
+      
+      else
+        replace_message = "Try typing 'start workout'"
+        client.chat_postMessage(channel: channel, text: "Let's do this together bro!", as_user: true)
+      end
+ 
+# ----------
   
   elsif call_back == "equipment"
              replace_message = "Cool!" 

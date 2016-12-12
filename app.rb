@@ -337,7 +337,7 @@ post "/interactive_buttons/" do
         
       elsif action_name == "chest"
         replace_message = "Cool!" 
-       client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Chest").sample(1).first.name}*\n#{BodyPart.all.where(body_part: "Chest").sample(1).first.url}", attachments: attachments, as_user: true)
+       client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Chest").sample.name}*\n#{BodyPart.all.where(body_part: "Chest").sample.url}", attachments: attachments, as_user: true)
       
       else
         replace_message = "Try typing 'start workout'"

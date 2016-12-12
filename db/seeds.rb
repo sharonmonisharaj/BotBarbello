@@ -514,7 +514,7 @@ BodyPart.create!([{
   type: "Legs",
   name: "Complete Leg Workout Routine at the Gym",
   url: "https://www.youtube.com/watch?v=PAti3uGRkb8"
-}
+},
 {
   type: "Legs",
   name: "The Big Tree Trunk Leg Workout",

@@ -323,6 +323,36 @@ post "/inspire/"  do
 
   end
 end
+
+# ----------------------------------------------------------------------
+
+post "/beforeafter/"  do
+  
+  puts params.to_s
+
+  slack_token = "Upm2rHVBhulKzKd3MsKYP8Cz"
+
+  if slack_token == params[:token]
+    
+    channel_name = params[:channel_name]
+    user_name = params[:user_name]
+    text = params[:text]
+    response_url = params[:response_url]
+
+    random = Beforeafter.all.sample(1).first
+    formatted_message = random.name + "\n" + random.story + "\n" + random.photo_url
+
+    content_type :json
+  
+    {text: formatted_message, response_type: "in_channel" }.to_json
+
+  else
+    content_type :json
+    {text: "Invalid Request", response_type: "ephemeral" }.to_json
+
+  end
+end
+
 # ----------------------------------------------------------------------
 #     ERRORS
 # ----------------------------------------------------------------------

@@ -324,6 +324,26 @@ post "/interactive_buttons/" do
       end
  
 # ----------
+  
+  elsif call_back == "equipment"
+             replace_message = "Cool!" 
+             puts "found match "
+                 
+      if action_name == "dumbbells"
+        replace_message = "Here's a dumbbell workout!" 
+        client.chat_postMessage(channel: channel, text: "*#{Dumbbell.all.sample(1).first.name}*\n#{Dumbbell.all.sample(1).first.dumbbell}", attachments: attachments, as_user: true)
+        
+      elsif action_name == "barbell"
+        replace_message = "Here's a barbell workout!" 
+        attachments =  lower_body 
+        client.chat_postMessage(channel: channel, text: "*#{Barbell.all.sample(1).first.name}*\n#{Barbell.all.sample(1).first.dumbbell}", attachments: attachments, as_user: true)
+      
+      else
+        replace_message += "Try typing 'start workout'"
+        client.chat_postMessage(channel: channel, text: "Let's do this together bro!", as_user: true)
+      end
+ 
+# ----------
       
     {text: replace_message, replace_original: true }.to_json
   else
@@ -667,7 +687,7 @@ def lower_body
         ].to_json
 end
 
-# # # ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
 
 def upper_body
 
@@ -713,8 +733,8 @@ def upper_body
         ].to_json
 end
 
-# # # ----------------------------------------------------------------------
-#
+# ----------------------------------------------------------------------
+
 def equipment
 
 [
@@ -743,30 +763,6 @@ def equipment
                     "value": "barbell"
                 },
                 {
-                    "name": "pull_up_bar",
-                    "text": "Pull Up Bar",
-                    "type": "button",
-                    "value": "pull_up_bar"
-                },
-                {
-                    "name": "rings",
-                    "text": "Rings",
-                    "type": "button",
-                    "value": "rings"
-                },
-                {
-                    "name": "jump_rope",
-                    "text": "Jump Rope",
-                    "type": "button",
-                    "value": "jump_rope"
-                },
-                {
-                    "name": "plyo_box",
-                    "text": "Plyo Box",
-                    "type": "button",
-                    "value": "plyo_box"
-                },
-                {
                     "name": "stability_ball",
                     "text": "Stability Ball",
                     "type": "button",
@@ -777,20 +773,14 @@ def equipment
                     "text": "Medicine Ball",
                     "type": "button",
                     "value": "medicine_ball"
-                },
-                {
-                    "name": "bosu_ball",
-                    "text": "Bosu Ball",
-                    "type": "button",
-                    "value": "bosu_ball"
                 }
             ]
         }
     ].to_json
 end
-#
-# # # ----------------------------------------------------------------------
-#
+
+# ----------------------------------------------------------------------
+
 def workout_type
 
 [
@@ -835,4 +825,4 @@ def workout_type
     ].to_json
 end
 
-# # ----------------------------------------------------------------------
+# ----------------------------------------------------------------------

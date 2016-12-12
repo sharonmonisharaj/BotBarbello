@@ -331,12 +331,12 @@ post "/interactive_buttons/" do
                  
       if action_name == "dumbbells"
         replace_message = "Here's a dumbbell workout!" 
-        client.chat_postMessage(channel: channel, text: "*#{Dumbbell.all.sample(1).first.name}*\n#{Dumbbell.all.sample(1).first.dumbbell}", attachments: attachments, as_user: true)
+        client.chat_postMessage(channel: channel, text: "*#{DumbbellExercise.all.sample(1).first.name}*\n#{DumbbellExercise.all.sample(1).first.dumbbell}", attachments: attachments, as_user: true)
         
       elsif action_name == "barbell"
         replace_message = "Here's a barbell workout!" 
         attachments =  lower_body 
-        client.chat_postMessage(channel: channel, text: "*#{Barbell.all.sample(1).first.name}*\n#{Barbell.all.sample(1).first.barbell}", attachments: attachments, as_user: true)
+        client.chat_postMessage(channel: channel, text: "*#{BarbellExercise.all.sample(1).first.name}*\n#{BarbellExercise.all.sample(1).first.barbell}", attachments: attachments, as_user: true)
       
       else
         replace_message = "Try typing 'start workout'"

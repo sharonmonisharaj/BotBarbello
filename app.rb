@@ -621,7 +621,11 @@ elsif ["inspire"].any? { |w| event.formatted_text.starts_with? w }
  
  
 elsif ["before"].any? { |w| event.formatted_text.starts_with? w } 
- client.chat_postMessage(channel: event.channel, text: "*#{Beforeafter.all.sample(1).first.name}*\n- #{Beforeafter.all.sample(1).first.story}\n#{random = Beforeafter.all.sample(1).first.photo_url}", attachments: attachments, as_user: true)
+ client.chat_postMessage(channel: event.channel, text: "*#{Beforeafter.all.sample(1).first.name}*\n- #{Beforeafter.all.sample(1).first.story}\n#{Beforeafter.all.sample(1).first.photo_url}", attachments: attachments, as_user: true)
+ 
+ 
+elsif ["work"].any? { |w| event.formatted_text.starts_with? w } 
+ client.chat_postMessage(channel: event.channel, text: "Yo dude! Here's a new workout video!\n*#{BodyPart.all.sample(1).first.workout_name}*\n#{BodyPart.all.sample(1).first.url}", attachments: attachments, as_user: true)
  
 
     # Handle the Help commands

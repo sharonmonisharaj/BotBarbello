@@ -177,7 +177,7 @@ post "/interactive_buttons/" do
       puts "found match "
     
       if action_name == "start_workout"
-        replace_message = "Cool!" 
+        replace_message = "Aaaaare youuuuu readyyyy!" 
         attachments =  step_one 
         client.chat_postMessage(channel: channel, text: "Let's get started!", attachments: attachments, as_user: true)
         
@@ -195,21 +195,21 @@ post "/interactive_buttons/" do
       if action_name == "muscle_group"
         replace_message += "Cool!" 
         attachments =  muscle_group 
-        client.chat_postMessage(channel: channel, text: "You chose to workout by muscle group!", attachments: attachments, as_user: true)
+        client.chat_postMessage(channel: channel, text: "Muscle group, eh? Whatever you say brother!", attachments: attachments, as_user: true)
         
       elsif action_name == "equipment"
         replace_message += "Cool!" 
         attachments =  equipment
-        client.chat_postMessage(channel: channel, text: "You chose to workout by equipment!", attachments: attachments, as_user: true)     
+        client.chat_postMessage(channel: channel, text: "Equipment! I like ya!", attachments: attachments, as_user: true)     
       
       elsif action_name == "workout_type"
         replace_message += "Cool!" 
         attachments =  workout_type
-        client.chat_postMessage(channel: channel, text: "You chose to workout by workout type!", attachments: attachments, as_user: true)
+        client.chat_postMessage(channel: channel, text: "Workout type, let's do this!", attachments: attachments, as_user: true)
         
       else
         replace_message = "Try typing 'start workout'"
-        client.chat_postMessage(channel: channel, text: "Let's do this together bro!", as_user: true)
+        client.chat_postMessage(channel: channel, text: "It's all under control! You got this cowboy!", as_user: true)
       end
      
 # ----------      
@@ -221,16 +221,16 @@ post "/interactive_buttons/" do
       if action_name == "upper_body"
         replace_message += "Cool!" 
         attachments =  upper_body 
-        client.chat_postMessage(channel: channel, text: "You've chosen upper body!", attachments: attachments, as_user: true)
+        client.chat_postMessage(channel: channel, text: "You chose upper body! We're gonna have a partyy! Hey that rhymes!! Ain't I awesome!", attachments: attachments, as_user: true)
         
       elsif action_name == "lower_body"
         replace_message += "Cool!" 
         attachments =  lower_body 
-        client.chat_postMessage(channel: channel, text: "You've chosen lower body!", attachments: attachments, as_user: true)
+        client.chat_postMessage(channel: channel, text: "Ah, lower body? May the force be with ya!", attachments: attachments, as_user: true)
       
       else
         replace_message = "Try typing 'start workout'"
-        client.chat_postMessage(channel: channel, text: "Let's do this together bro!", as_user: true)
+        client.chat_postMessage(channel: channel, text: "It's all under control! You got this cowboy!", as_user: true)
       end
  
 # ----------
@@ -570,12 +570,12 @@ def respond_to_slack_event json
     
   elsif ["equipment"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  equipment 
-    client.chat_postMessage(channel: event.channel, text: "Yo!", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "You go cowboy!", attachments: attachments, as_user: true)
     
     
   elsif ["workout type"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  workout_type 
-    client.chat_postMessage(channel: event.channel, text: "Yo!", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "You're the man!", attachments: attachments, as_user: true)
     
     
    elsif ["shoulder"].any? { |w| event.formatted_text.starts_with? w } 

@@ -617,7 +617,11 @@ elsif ["medicine ball"].any? { |w| event.formatted_text.starts_with? w }
  
  
 elsif ["inspire"].any? { |w| event.formatted_text.starts_with? w } 
- client.chat_postMessage(channel: event.channel, text: "#{random = BodybuilderQuote.all.sample(1).first.quote}\n- #{random = BodybuilderQuote.all.sample(1).first.name}\n#{random = BodybuilderQuote.all.sample(1).first.photo_url}", attachments: attachments, as_user: true)
+ client.chat_postMessage(channel: event.channel, text: "#{BodybuilderQuote.all.sample(1).first.quote}\n- #{BodybuilderQuote.all.sample(1).first.name}\n#{BodybuilderQuote.all.sample(1).first.photo_url}", attachments: attachments, as_user: true)
+ 
+ 
+elsif ["before"].any? { |w| event.formatted_text.starts_with? w } 
+ client.chat_postMessage(channel: event.channel, text: "*#{Beforeafter.all.sample(1).first.name}*\n- #{Beforeafter.all.sample(1).first.story}\n#{random = Beforeafter.all.sample(1).first.photo_url}", attachments: attachments, as_user: true)
  
 
     # Handle the Help commands

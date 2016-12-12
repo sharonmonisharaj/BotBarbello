@@ -182,7 +182,7 @@ post "/interactive_buttons/" do
         
       else
         replace_message = "Try typing 'start workout'"
-        client.chat_postMessage(channel: channel, text: "Let's do this together bro!", as_user: true)
+        client.chat_postMessage(channel: channel, text: "It's all under control! You got this cowboy!", as_user: true)
       end
       
  # ----------     
@@ -243,7 +243,7 @@ post "/interactive_buttons/" do
      client.chat_postMessage(channel: channel, text: "That awkward moment when you're walking through the metal detector and your abs of steel set it off! I live for that!\n\n*#{BodyPart.all.where(body_part: "Abs").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Abs").sample.url}", attachments: attachments, as_user: true)
      
    elsif action_name == "arms"
-    client.chat_postMessage(channel: channel, text: "Did ya know our arms start from the back cuz they were once wings?!*#{BodyPart.all.where(body_part: "Arms").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Arms").sample.url}", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: channel, text: "Did ya know our arms start from the back cuz they were once wings?!\n\n*#{BodyPart.all.where(body_part: "Arms").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Arms").sample.url}", attachments: attachments, as_user: true)
       
       else
         replace_message = "Try typing 'start workout'"
@@ -288,39 +288,32 @@ elsif action_name == "aerobics"
       
       else
         replace_message = "Try typing 'start workout'"
-        client.chat_postMessage(channel: channel, text: "Let's do this together bro!", as_user: true)
+        client.chat_postMessage(channel: channel, text: "It's all under control! You got this cowboy!", as_user: true)
       end
  
 # ----------
   
   elsif call_back == "equipment"
-             replace_message = "Cool!" 
              puts "found match "
                  
       if action_name == "dumbbells"
-        replace_message = "Here's a dumbbell workout!" 
-        client.chat_postMessage(channel: channel, text: "*#{DumbbellExercise.all.sample(1).first.name}*\n#{DumbbellExercise.all.sample(1).first.dumbbell}", attachments: attachments, as_user: true)
+        client.chat_postMessage(channel: channel, text: "Know your limits, then crush 'em!\n\n*#{DumbbellExercise.all.sample(1).first.name}*\n#{DumbbellExercise.all.sample(1).first.dumbbell}", attachments: attachments, as_user: true)
         
       elsif action_name == "barbell"
-        replace_message = "Here's a barbell workout!" 
-        attachments =  lower_body 
-        client.chat_postMessage(channel: channel, text: "*#{BarbellExercise.all.sample(1).first.name}*\n#{BarbellExercise.all.sample(1).first.barbell}", attachments: attachments, as_user: true)
+        client.chat_postMessage(channel: channel, text: "Don't do your best man! Do whatever it takes!\n\n*#{BarbellExercise.all.sample(1).first.name}*\n#{BarbellExercise.all.sample(1).first.barbell}", attachments: attachments, as_user: true)
         
       elsif action_name == "kettle_bell"
-        replace_message = "Cool!" 
-       client.chat_postMessage(channel: channel, text: "*#{Tool.all.where(equipment: "Kettle Bell").sample.workout_name}*\n#{Tool.all.where(equipment: "Kettle Bell").sample.url}", attachments: attachments, as_user: true)
+       client.chat_postMessage(channel: channel, text: "Remember brother, pain is just weakness leaving the body!\n\n*#{Tool.all.where(equipment: "Kettle Bell").sample.workout_name}*\n#{Tool.all.where(equipment: "Kettle Bell").sample.url}", attachments: attachments, as_user: true)
        
      elsif action_name == "stability_ball"
-       replace_message = "Cool!" 
-      client.chat_postMessage(channel: channel, text: "*#{Tool.all.where(equipment: "Stability Ball").sample.workout_name}*\n#{Tool.all.where(equipment: "Stability Ball").sample.url}", attachments: attachments, as_user: true)
+      client.chat_postMessage(channel: channel, text: "The only bad workout is the one that never happened. Make this happen!\n\n*#{Tool.all.where(equipment: "Stability Ball").sample.workout_name}*\n#{Tool.all.where(equipment: "Stability Ball").sample.url}", attachments: attachments, as_user: true)
       
     elsif action_name == "medicine_ball"
-      replace_message = "Cool!" 
-     client.chat_postMessage(channel: channel, text: "*#{Tool.all.where(equipment: "Medicine Ball").sample.workout_name}*\n#{Tool.all.where(equipment: "Medicine Ball").sample.url}", attachments: attachments, as_user: true)
+     client.chat_postMessage(channel: channel, text: "Do it because they said you couldn't!\n\n*#{Tool.all.where(equipment: "Medicine Ball").sample.workout_name}*\n#{Tool.all.where(equipment: "Medicine Ball").sample.url}", attachments: attachments, as_user: true)
       
       else
         replace_message = "Try typing 'start workout'"
-        client.chat_postMessage(channel: channel, text: "Let's do this together bro!", as_user: true)
+        client.chat_postMessage(channel: channel, text: "It's all under control! You got this cowboy!", as_user: true)
       end
  
 # ----------
@@ -532,95 +525,95 @@ def respond_to_slack_event json
 
   elsif ["muscle group"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  muscle_group 
-    client.chat_postMessage(channel: event.channel, text: "Hey man!", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "Muscle group, eh? Whatever you say brother!", attachments: attachments, as_user: true)
 
 
   elsif ["upper body"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  upper_body 
-    client.chat_postMessage(channel: event.channel, text: "Hey bro!", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "You chose upper body! We're gonna have a partyy! Hey that rhymes!! Ain't I awesome!", attachments: attachments, as_user: true)
 
 
   elsif ["lower body"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  lower_body 
-    client.chat_postMessage(channel: event.channel, text: "Yo!", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "Ah, lower body? May the force be with ya!", attachments: attachments, as_user: true)
     
     
   elsif ["equipment"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  equipment 
-    client.chat_postMessage(channel: event.channel, text: "You go cowboy!", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "Equipment?! I like ya!", attachments: attachments, as_user: true)
     
     
   elsif ["workout type"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  workout_type 
-    client.chat_postMessage(channel: event.channel, text: "You're the man!", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "Workout type, let's do this!", attachments: attachments, as_user: true)
     
     
    elsif ["shoulder"].any? { |w| event.formatted_text.starts_with? w } 
-     client.chat_postMessage(channel: event.channel, text: "*#{BodyPart.all.where(body_part: "Shoulders").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Shoulders").sample.url}", as_user: true)
+     client.chat_postMessage(channel: event.channel, text: "Sometimes we all need a shoulder to cry on. Those shoulders better be strong bro!\n\n*#{BodyPart.all.where(body_part: "Shoulders").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Shoulders").sample.url}", as_user: true)
      
      
    elsif ["chest"].any? { |w| event.formatted_text.starts_with? w } 
-     client.chat_postMessage(channel: event.channel, text: "*#{BodyPart.all.where(body_part: "Chest").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Chest").sample.url}", attachments: attachments, as_user: true)
+     client.chat_postMessage(channel: event.channel, text: "I'm a big fan of Elvis, man. I got 'Heartbreak Hotel' tattooed on my chest!\n\n*#{BodyPart.all.where(body_part: "Chest").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Chest").sample.url}", attachments: attachments, as_user: true)
      
      
    elsif ["back"].any? { |w| event.formatted_text.starts_with? w } 
-     client.chat_postMessage(channel: event.channel, text: "*#{BodyPart.all.where(body_part: "Back").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Back").sample.url}", attachments: attachments, as_user: true)
+     client.chat_postMessage(channel: event.channel, text: "I've got your back bro!\n\n*#{BodyPart.all.where(body_part: "Back").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Back").sample.url}", attachments: attachments, as_user: true)
      
      
    elsif ["abs"].any? { |w| event.formatted_text.starts_with? w } 
-     client.chat_postMessage(channel: event.channel, text: "*#{BodyPart.all.where(body_part: "Abs").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Abs").sample.url}", attachments: attachments, as_user: true)
+     client.chat_postMessage(channel: event.channel, text: "That awkward moment when you're walking through the metal detector and your abs of steel set it off! I live for that!\n\n*#{BodyPart.all.where(body_part: "Abs").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Abs").sample.url}", attachments: attachments, as_user: true)
      
      
    elsif ["arms"].any? { |w| event.formatted_text.starts_with? w } 
-    client.chat_postMessage(channel: event.channel, text: "*#{BodyPart.all.where(body_part: "Arms").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Arms").sample.url}", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "Did ya know our arms start from the back cuz they were once wings?!\n\n*#{BodyPart.all.where(body_part: "Arms").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Arms").sample.url}", attachments: attachments, as_user: true)
      
      
    elsif ["glutes"].any? { |w| event.formatted_text.starts_with? w } 
-     client.chat_postMessage(channel: event.channel, text: "*#{BodyPart.all.where(body_part: "Glutes").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Glutes").sample.url}", attachments: attachments, as_user: true)
+     client.chat_postMessage(channel: event.channel, text: "No glutes, no glory!\n\n*#{BodyPart.all.where(body_part: "Glutes").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Glutes").sample.url}", attachments: attachments, as_user: true)
      
      
    elsif ["legs"].any? { |w| event.formatted_text.starts_with? w } 
-     client.chat_postMessage(channel: event.channel, text: "*#{BodyPart.all.where(body_part: "Legs").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Legs").sample.url}", attachments: attachments, as_user: true)
+     client.chat_postMessage(channel: event.channel, text: "When your legs get tired, run with your heart bro!\n\n*#{BodyPart.all.where(body_part: "Legs").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Legs").sample.url}", attachments: attachments, as_user: true)
      
      
    elsif ["interval"].any? { |w| event.formatted_text.starts_with? w } 
-    client.chat_postMessage(channel: event.channel, text: "*#{WorkoutType.all.where(workout_type: "HIIT").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "HIIT").sample.url}", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "Will it be easy? Nope! Worth it? Absolutely!\n\n*#{WorkoutType.all.where(workout_type: "HIIT").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "HIIT").sample.url}", attachments: attachments, as_user: true)
      
      
    elsif ["pilates"].any? { |w| event.formatted_text.starts_with? w } 
-     client.chat_postMessage(channel: event.channel, text: "*#{WorkoutType.all.where(workout_type: "Pilates").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Pilates").sample.url}", attachments: attachments, as_user: true)
+     client.chat_postMessage(channel: event.channel, text: "All ya need is love! And Pilates!!\n\n*#{WorkoutType.all.where(workout_type: "Pilates").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Pilates").sample.url}", attachments: attachments, as_user: true)
      
      
    elsif ["yoga"].any? { |w| event.formatted_text.starts_with? w } 
-     client.chat_postMessage(channel: event.channel, text: "*#{WorkoutType.all.where(workout_type: "Yoga").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Yoga").sample.url}", attachments: attachments, as_user: true)
+     client.chat_postMessage(channel: event.channel, text: "Inhale the future, exhale the past. Piece of cake!\n\n*#{WorkoutType.all.where(workout_type: "Yoga").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Yoga").sample.url}", attachments: attachments, as_user: true)
      
      
-   elsif ["tai chi"].any? { |w| event.formatted_text.starts_with? w } 
-     client.chat_postMessage(channel: event.channel, text: "*#{WorkoutType.all.where(workout_type: "Tai Chi").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Tai Chi").sample.url}", attachments: attachments, as_user: true)
+   elsif ["tai chi", "taichi"].any? { |w| event.formatted_text.starts_with? w } 
+     client.chat_postMessage(channel: event.channel, text: "Hey dude! Did ya get your morning cup of tai chi?\n\n*#{WorkoutType.all.where(workout_type: "Tai Chi").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Tai Chi").sample.url}", attachments: attachments, as_user: true)
      
      
    elsif ["aerobics"].any? { |w| event.formatted_text.starts_with? w } 
-    client.chat_postMessage(channel: event.channel, text: "*#{WorkoutType.all.where(workout_type: "Aerobics").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Aerobics").sample.url}", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "Yo cowboy! Good things come to those that sweat!\n\n*#{WorkoutType.all.where(workout_type: "Aerobics").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Aerobics").sample.url}", attachments: attachments, as_user: true)
     
     
   elsif ["barbell"].any? { |w| event.formatted_text.starts_with? w } 
-    client.chat_postMessage(channel: event.channel, text: "*#{BarbellExercise.all.sample(1).first.name}*\n#{BarbellExercise.all.sample(1).first.barbell}", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "Don't do your best man! Do whatever it takes!\n\n*#{BarbellExercise.all.sample(1).first.name}*\n#{BarbellExercise.all.sample(1).first.barbell}", attachments: attachments, as_user: true)
    
    
  elsif ["dumbbell"].any? { |w| event.formatted_text.starts_with? w } 
-  client.chat_postMessage(channel: event.channel, text: "*#{DumbbellExercise.all.sample(1).first.name}*\n#{DumbbellExercise.all.sample(1).first.dumbbell}", attachments: attachments, as_user: true)
+  client.chat_postMessage(channel: event.channel, text: "Know your limits, then crush 'em!\n\n*#{DumbbellExercise.all.sample(1).first.name}*\n#{DumbbellExercise.all.sample(1).first.dumbbell}", attachments: attachments, as_user: true)
   
   
 elsif ["kettle bell"].any? { |w| event.formatted_text.starts_with? w } 
- client.chat_postMessage(channel: event.channel, text: "*#{Tool.all.where(equipment: "Kettle Bell").sample.workout_name}*\n#{Tool.all.where(equipment: "Kettle Bell").sample.url}", attachments: attachments, as_user: true)
+ client.chat_postMessage(channel: event.channel, text: "Remember brother, pain is just weakness leaving the body!\n\n*#{Tool.all.where(equipment: "Kettle Bell").sample.workout_name}*\n#{Tool.all.where(equipment: "Kettle Bell").sample.url}", attachments: attachments, as_user: true)
  
  
 elsif ["stability ball","exercise ball"].any? { |w| event.formatted_text.starts_with? w } 
- client.chat_postMessage(channel: event.channel, text: "*#{Tool.all.where(equipment: "Stability Ball").sample.workout_name}*\n#{Tool.all.where(equipment: "Stability Ball").sample.url}", attachments: attachments, as_user: true)
+ client.chat_postMessage(channel: event.channel, text: "The only bad workout is the one that never happened. Make this happen!\n\n*#{Tool.all.where(equipment: "Stability Ball").sample.workout_name}*\n#{Tool.all.where(equipment: "Stability Ball").sample.url}", attachments: attachments, as_user: true)
  
  
 elsif ["medicine ball"].any? { |w| event.formatted_text.starts_with? w } 
- client.chat_postMessage(channel: event.channel, text: "*#{Tool.all.where(equipment: "Medicine Ball").sample.workout_name}*\n#{Tool.all.where(equipment: "Medicine Ball").sample.url}", attachments: attachments, as_user: true)
+ client.chat_postMessage(channel: event.channel, text: "Do it because they said you couldn't!\n\n*#{Tool.all.where(equipment: "Medicine Ball").sample.workout_name}*\n#{Tool.all.where(equipment: "Medicine Ball").sample.url}", attachments: attachments, as_user: true)
  
 
     # Handle the Help commands

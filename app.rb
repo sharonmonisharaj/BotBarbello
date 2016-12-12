@@ -604,6 +604,26 @@ def respond_to_slack_event json
      
    elsif ["legs"].any? { |w| event.formatted_text.starts_with? w } 
      client.chat_postMessage(channel: event.channel, text: "*#{BodyPart.all.where(body_part: "Legs").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Legs").sample.url}", attachments: attachments, as_user: true)
+     
+     
+   elsif ["hiit"].any? { |w| event.formatted_text.starts_with? w } 
+    client.chat_postMessage(channel: event.channel, text: "*#{WorkoutType.all.where(workout_type: "HIIT").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "HIIT").sample.url}", attachments: attachments, as_user: true)
+     
+     
+   elsif ["pilates"].any? { |w| event.formatted_text.starts_with? w } 
+     client.chat_postMessage(channel: event.channel, text: "*#{WorkoutType.all.where(workout_type: "Pilates").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Pilates").sample.url}", attachments: attachments, as_user: true)
+     
+     
+   elsif ["yoga"].any? { |w| event.formatted_text.starts_with? w } 
+     client.chat_postMessage(channel: event.channel, text: "*#{WorkoutType.all.where(workout_type: "Yoga").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Yoga").sample.url}", attachments: attachments, as_user: true)
+     
+     
+   elsif ["tai chi"].any? { |w| event.formatted_text.starts_with? w } 
+     client.chat_postMessage(channel: event.channel, text: "*#{WorkoutType.all.where(workout_type: "Tai Chi").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Tai Chi").sample.url}", attachments: attachments, as_user: true)
+     
+     
+   elsif ["aerobics"].any? { |w| event.formatted_text.starts_with? w } 
+    client.chat_postMessage(channel: event.channel, text: "*#{WorkoutType.all.where(workout_type: "Aerobics").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Aerobics").sample.url}", attachments: attachments, as_user: true)
 
 
     # Handle the Help commands

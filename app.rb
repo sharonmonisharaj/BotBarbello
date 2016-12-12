@@ -606,7 +606,7 @@ def respond_to_slack_event json
      client.chat_postMessage(channel: event.channel, text: "*#{BodyPart.all.where(body_part: "Legs").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Legs").sample.url}", attachments: attachments, as_user: true)
      
      
-   elsif ["hiit"].any? { |w| event.formatted_text.starts_with? w } 
+   elsif ["interval"].any? { |w| event.formatted_text.starts_with? w } 
     client.chat_postMessage(channel: event.channel, text: "*#{WorkoutType.all.where(workout_type: "HIIT").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "HIIT").sample.url}", attachments: attachments, as_user: true)
      
      
@@ -624,7 +624,27 @@ def respond_to_slack_event json
      
    elsif ["aerobics"].any? { |w| event.formatted_text.starts_with? w } 
     client.chat_postMessage(channel: event.channel, text: "*#{WorkoutType.all.where(workout_type: "Aerobics").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Aerobics").sample.url}", attachments: attachments, as_user: true)
-
+    
+    
+  elsif ["barbell"].any? { |w| event.formatted_text.starts_with? w } 
+    client.chat_postMessage(channel: event.channel, text: "*#{BarbellExercise.all.sample(1).first.name}*\n#{BarbellExercise.all.sample(1).first.barbell}", attachments: attachments, as_user: true)
+   
+   
+ elsif ["dumbbell"].any? { |w| event.formatted_text.starts_with? w } 
+  client.chat_postMessage(channel: event.channel, text: "*#{DumbbellExercise.all.sample(1).first.name}*\n#{DumbbellExercise.all.sample(1).first.dumbbell}", attachments: attachments, as_user: true)
+  
+  
+elsif ["kettle bell"].any? { |w| event.formatted_text.starts_with? w } 
+ client.chat_postMessage(channel: event.channel, text: "*#{Tool.all.where(equipment: "Kettle Bell").sample.workout_name}*\n#{Tool.all.where(equipment: "Kettle Bell").sample.url}", attachments: attachments, as_user: true)
+ 
+ 
+elsif ["stability ball","exercise ball"].any? { |w| event.formatted_text.starts_with? w } 
+ client.chat_postMessage(channel: event.channel, text: "*#{Tool.all.where(equipment: "Stability Ball").sample.workout_name}*\n#{Tool.all.where(equipment: "Stability Ball").sample.url}", attachments: attachments, as_user: true)
+ 
+ 
+elsif ["medicine ball"].any? { |w| event.formatted_text.starts_with? w } 
+ client.chat_postMessage(channel: event.channel, text: "*#{Tool.all.where(equipment: "Medicine Ball").sample.workout_name}*\n#{Tool.all.where(equipment: "Medicine Ball").sample.url}", attachments: attachments, as_user: true)
+ 
 
     # Handle the Help commands
   elsif event.formatted_text.include? "help"

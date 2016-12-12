@@ -284,6 +284,37 @@ post "/interactive_buttons/" do
       end
  
 # ----------
+
+  elsif call_back == "workout_type"
+             replace_message = "Cool!" 
+             puts "found match "
+                 
+      if action_name == "hiit"
+        replace_message = "Cool!" 
+       client.chat_postMessage(channel: channel, text: "*#{WorkoutType.all.where(workout_type: "HIIT").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "HIIT").sample.url}", attachments: attachments, as_user: true)
+     
+   elsif action_name == "pilates"
+     replace_message = "Cool!" 
+    client.chat_postMessage(channel: channel, text: "*#{WorkoutType.all.where(workout_type: "Pilates").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Pilates").sample.url}", attachments: attachments, as_user: true)
+    
+  elsif action_name == "yoga"
+    replace_message = "Cool!" 
+   client.chat_postMessage(channel: channel, text: "*#{WorkoutType.all.where(workout_type: "Yoga").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Yoga").sample.url}", attachments: attachments, as_user: true)
+   
+ elsif action_name == "tai_chi"
+   replace_message = "Cool!" 
+  client.chat_postMessage(channel: channel, text: "*#{WorkoutType.all.where(workout_type: "Tai Chi").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Tai Chi").sample.url}", attachments: attachments, as_user: true)
+  
+elsif action_name == "aerobics"
+  replace_message = "Cool!" 
+ client.chat_postMessage(channel: channel, text: "*#{WorkoutType.all.where(workout_type: "Aerobics").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Aerobics").sample.url}", attachments: attachments, as_user: true)
+      
+      else
+        replace_message = "Try typing 'start workout'"
+        client.chat_postMessage(channel: channel, text: "Let's do this together bro!", as_user: true)
+      end
+ 
+# ----------
   
   elsif call_back == "equipment"
              replace_message = "Cool!" 

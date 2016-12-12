@@ -134,96 +134,6 @@ end
 
 # ----------------------------------------------------------------------
 
-# post "/interactive_buttons/" do
-#
-#   content_type :json
-#
-#   request.body.rewind
-#   raw_body = request.body.read
-#
-#   puts "Params: " + params.to_s
-#   #puts "Raw: " + raw_body.to_s
-#
-#   json_request = JSON.parse( params["payload"] )
-#   puts "JSON = " + json_request.to_s
-#   puts "checking token"
-#
-#   if json_request['token'] != ENV['SLACK_VERIFICATION_TOKEN']
-#       halt 403, 'Incorrect slack token'
-#   end
-#
-#   puts "token valid"
-#
-#   call_back = json_request['callback_id']
-#   action_name = json_request['actions'].first["name"]
-#   action_value = json_request['actions'].first["value"]
-#   channel = json_request['channel']['id']
-#   team_id = json_request['team']['id']
-#
-#   puts "Action: " + call_back.to_s
-#   puts "Call Back: " + action_name.to_s
-#   puts "team_id : " + team_id.to_s
-#   puts "channel : " + channel.to_s
-#
-#
-#   team = Team.find_by( team_id: team_id )
-#
-#   # didn't find a match... this is junk!
-#   return if team.nil?
-#
-#   puts "team found :"
-#
-#   client = team.get_client
-#
-#  if call_back == "step_one"
-#
-#       replace_message = "Cool!"
-#       puts "found match "
-#
-#       if action_name == "start_workout"
-#         replace_message += "Cool!"
-#         attachments =  step_one
-#         client.chat_postMessage(channel: channel, text: "Let's get started!", attachments: attachments, as_user: true)
-#
-#
-#       elsif action_name == "muscle_group"
-#         replace_message += "Cool!"
-#         attachments =  muscle_group
-#         client.chat_postMessage(channel: channel, text: "You chose to workout by muscle group!", attachments: attachments, as_user: true)
-#
-#
-#       elsif action_name == "equipment"
-#         replace_message += "Cool!"
-#         attachments =  equipment
-#         client.chat_postMessage(channel: channel, text: "You chose to workout by equipment!", as_user: true)
-#
-#
-#       elsif action_name == "workout_type"
-#         replace_message += "Cool!"
-#         attachments =  workout_type
-#         client.chat_postMessage(channel: channel, text: "You chose to workout by workout type!", as_user: true)
-#
-#
-#       elsif action_name == "upper_body"
-#         replace_message += "Cool!"
-#         attachments =  upper_body
-#         client.chat_postMessage(channel: channel, text: "You chose to workout by muscle group!", attachments: attachments, as_user: true)
-#
-#       else
-#         replace_message += "Try typing 'start workout'"
-#         client.chat_postMessage(channel: channel, text: "Let's do this together bro!", as_user: true)
-#       end
-#
-#       {text: replace_message, replace_original: true }.to_json
-#
-#   else
-#     200
-#   end
-#
-# end
-
-# ----------------------------------------------------------------------
-
 post "/interactive_buttons/" do
   content_type :json
   request.body.rewind
@@ -417,21 +327,22 @@ post "/workout/"  do
     
      if text.downcase.strip == "dumbbell"
        random = DumbbellExercise.all.sample(1).first
-       formatted_message = greeting.sample + " Here's your new dumbbell workout video!\n\n" + random.name + "\n" + random.dumbbell
+       formatted_message = greeting.sample + " Here's your new dumbbell workout video!\n\n" + "*#{random.name}*" + "\n" + random.dumbbell
      
      
      elsif text.downcase.strip == "barbell"
        random = BarbellExercise.all.sample(1).first
-       formatted_message = greeting.sample + " Here's your new barbell workout video!\n\n" + random.name + "\n" + random.barbell
+       formatted_message = greeting.sample + " Here's your new barbell workout video!\n\n" + "*#{random.name}*" + "\n" + random.barbell
     
      
      elsif text.downcase.strip == "cardio"
        random = CardioExercise.all.sample(1).first
-       formatted_message = greeting.sample + " Here's your new cardio workout video!\n\n" + random.name + "\n" + random.cardio
+       formatted_message = greeting.sample + " Here's your new cardio workout video!\n\n" + "*#{random.name}*" + "\n" + random.cardio
   
-   else 
-     "I'm sorry, it looks like I can't help you with that at the moment. Please enter one of the following\n\n/workout dumbbell\n/workout barbell\n/workout cardio"
-   end
+     else 
+       random = BodyPart.all.sample(1).first
+       formatted_message = greeting.sample + " Here's a new workout video!\n\n" + "*#{random.workout_name}*" + "\n" + random.url
+     end
 
     content_type :json
   

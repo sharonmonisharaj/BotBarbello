@@ -562,6 +562,22 @@ def respond_to_slack_event json
   elsif ["lower body"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  lower_body 
     client.chat_postMessage(channel: event.channel, text: "Yo!", attachments: attachments, as_user: true)
+    
+    
+  elsif ["equipment"].any? { |w| event.formatted_text.starts_with? w }  
+    attachments =  equipment 
+    client.chat_postMessage(channel: event.channel, text: "Yo!", attachments: attachments, as_user: true)
+    
+    
+  elsif ["workout type"].any? { |w| event.formatted_text.starts_with? w }  
+    attachments =  workout_type 
+    client.chat_postMessage(channel: event.channel, text: "Yo!", attachments: attachments, as_user: true)
+    
+    
+   elsif ["shoulder"].any? { |w| event.formatted_text.starts_with? w } 
+     workout = BodyPart.all.where( body_part: "Shoulders" )
+     random = workout.sample
+    client.chat_postMessage(channel: channel, text: "*#{random.name}*\n#{random.url}", as_user: true)
 
 
     # Handle the Help commands
@@ -659,7 +675,7 @@ def muscle_group
 end
 #
 
-# # # ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
 
 def lower_body
 

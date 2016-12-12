@@ -329,7 +329,7 @@ post "/interactive_buttons/" do
              replace_message = "Cool!" 
              puts "found match "
                  
-      if action_name == "shoulder"
+      if action_name == "shoulders"
         replace_message = "Cool!" 
        client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Shoulders").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Shoulders").sample.url}", attachments: attachments, as_user: true)
         
@@ -368,6 +368,18 @@ post "/interactive_buttons/" do
         replace_message = "Here's a barbell workout!" 
         attachments =  lower_body 
         client.chat_postMessage(channel: channel, text: "*#{BarbellExercise.all.sample(1).first.name}*\n#{BarbellExercise.all.sample(1).first.barbell}", attachments: attachments, as_user: true)
+        
+      elsif action_name == "kettle_bell"
+        replace_message = "Cool!" 
+       client.chat_postMessage(channel: channel, text: "*#{Tool.all.where(equipment: "Kettle Bell").sample.workout_name}*\n#{Tool.all.where(equipment: "Kettle Bell").sample.url}", attachments: attachments, as_user: true)
+       
+     elsif action_name == "stability_ball"
+       replace_message = "Cool!" 
+      client.chat_postMessage(channel: channel, text: "*#{Tool.all.where(equipment: "Stability Ball").sample.workout_name}*\n#{Tool.all.where(equipment: "Stability Ball").sample.url}", attachments: attachments, as_user: true)
+      
+    elsif action_name == "medicine_ball"
+      replace_message = "Cool!" 
+     client.chat_postMessage(channel: channel, text: "*#{Tool.all.where(equipment: "Medicine Ball").sample.workout_name}*\n#{Tool.all.where(equipment: "Medicine Ball").sample.url}", attachments: attachments, as_user: true)
       
       else
         replace_message = "Try typing 'start workout'"

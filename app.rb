@@ -546,7 +546,7 @@ def respond_to_slack_event json
   # Action commands
   if ["hi", "hey", "hello", "start", "start workout"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  intro 
-    client.chat_postMessage(channel: event.channel, text: "Yo dude! I'm BotBarbello, your fitness buddy!\nhttp://i61.photobucket.com/albums/h63/sharonmonisharaj/BotBarbello-02_zpsldw6vcre.png~original\n We're going to have a blast!\n\n*Here's the lingo I understand brother!*\n\n\n- Type `/inspire` to be inspired by a smashing quote from an ultra famous celebrity bodybuilder you probably adore!\n- Type `/beforeafter` for inspiring before and after photos of famous bodybuilders!\n- Type `/workout` for a quick workout video handpicked by yours truly!\n\nYou can also ask me for a video on any of the following by simply typing -\n`shoulders` | `chest` | `back` | `abs` | `arms` | `glutes` | `legs`\n\n", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: event.channel, text: "*Yo dude! I'm BotBarbello, your fitness buddy!*\nhttp://i61.photobucket.com/albums/h63/sharonmonisharaj/BotBarbello-02_zpsldw6vcre.png~original\n\n*Here's the lingo I understand brother!*\n\n\n- Type `/inspire` to be inspired by a smashing quote from an ultra famous celebrity bodybuilder you probably adore!\n- Type `/beforeafter` for inspiring before and after photos of famous bodybuilders!\n- Type `/workout` for a quick workout video handpicked by yours truly!\nType `help` if you're stuck!\n\nYou can also ask me for a video on any of the following by simply typing -\n`shoulders` | `chest` | `back` | `abs` | `arms` | `glutes` | `legs`\n\n", attachments: attachments, as_user: true)
 
 
   elsif ["muscle group"].any? { |w| event.formatted_text.starts_with? w }  

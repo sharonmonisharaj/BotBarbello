@@ -177,9 +177,8 @@ post "/interactive_buttons/" do
       puts "found match "
     
       if action_name == "start_workout"
-        replace_message = "Aaaaare youuuuu readyyyy!" 
         attachments =  step_one 
-        client.chat_postMessage(channel: channel, text: "Let's get started!", attachments: attachments, as_user: true)
+        client.chat_postMessage(channel: channel, text: "Aaaaare youuuuu readyyyy! Let's get started!", attachments: attachments, as_user: true)
         
       else
         replace_message = "Try typing 'start workout'"
@@ -189,21 +188,17 @@ post "/interactive_buttons/" do
  # ----------     
       
   elsif call_back == "step_one"
-           replace_message = "Cool!" 
            puts "found match "
     
       if action_name == "muscle_group"
-        replace_message += "Cool!" 
         attachments =  muscle_group 
         client.chat_postMessage(channel: channel, text: "Muscle group, eh? Whatever you say brother!", attachments: attachments, as_user: true)
         
       elsif action_name == "equipment"
-        replace_message += "Cool!" 
         attachments =  equipment
         client.chat_postMessage(channel: channel, text: "Equipment! I like ya!", attachments: attachments, as_user: true)     
       
       elsif action_name == "workout_type"
-        replace_message += "Cool!" 
         attachments =  workout_type
         client.chat_postMessage(channel: channel, text: "Workout type, let's do this!", attachments: attachments, as_user: true)
         
@@ -215,16 +210,13 @@ post "/interactive_buttons/" do
 # ----------      
   
   elsif call_back == "muscle_group"
-             replace_message = "Cool!" 
              puts "found match "
                  
       if action_name == "upper_body"
-        replace_message += "Cool!" 
         attachments =  upper_body 
         client.chat_postMessage(channel: channel, text: "You chose upper body! We're gonna have a partyy! Hey that rhymes!! Ain't I awesome!", attachments: attachments, as_user: true)
         
       elsif action_name == "lower_body"
-        replace_message += "Cool!" 
         attachments =  lower_body 
         client.chat_postMessage(channel: channel, text: "Ah, lower body? May the force be with ya!", attachments: attachments, as_user: true)
       
@@ -236,78 +228,63 @@ post "/interactive_buttons/" do
 # ----------
 
   elsif call_back == "upper_body"
-             replace_message = "Cool!" 
              puts "found match "
                  
       if action_name == "shoulders"
-        replace_message = "Cool!" 
-       client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Shoulders").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Shoulders").sample.url}", attachments: attachments, as_user: true)
+       client.chat_postMessage(channel: channel, text: "Sometimes we all need a shoulder to cry on. Those shoulders better be strong bro!\n\n*#{BodyPart.all.where(body_part: "Shoulders").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Shoulders").sample.url}", attachments: attachments, as_user: true)
         
       elsif action_name == "chest"
-        replace_message = "Cool!" 
-       client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Chest").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Chest").sample.url}", attachments: attachments, as_user: true)
+       client.chat_postMessage(channel: channel, text: "I'm a big fan of Elvis, man. I got 'Heartbreak Hotel' tattooed on my chest!\n\n*#{BodyPart.all.where(body_part: "Chest").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Chest").sample.url}", attachments: attachments, as_user: true)
        
      elsif action_name == "back"
-       replace_message = "Cool!" 
-      client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Back").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Back").sample.url}", attachments: attachments, as_user: true)
+      client.chat_postMessage(channel: channel, text: "I've got your back bro!\n\n*#{BodyPart.all.where(body_part: "Back").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Back").sample.url}", attachments: attachments, as_user: true)
       
     elsif action_name == "abs"
-      replace_message = "Cool!" 
-     client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Abs").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Abs").sample.url}", attachments: attachments, as_user: true)
+     client.chat_postMessage(channel: channel, text: "That awkward moment when you're walking through the metal detector and your abs of steel set it off! I live for that!\n\n*#{BodyPart.all.where(body_part: "Abs").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Abs").sample.url}", attachments: attachments, as_user: true)
      
    elsif action_name == "arms"
-     replace_message = "Cool!" 
-    client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Arms").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Arms").sample.url}", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: channel, text: "Did ya know our arms start from the back cuz they were once wings?!*#{BodyPart.all.where(body_part: "Arms").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Arms").sample.url}", attachments: attachments, as_user: true)
       
       else
         replace_message = "Try typing 'start workout'"
-        client.chat_postMessage(channel: channel, text: "Let's do this together bro!", as_user: true)
+        client.chat_postMessage(channel: channel, text: "It's all under control! You got this cowboy!", as_user: true)
       end
  
 # ----------
 
   elsif call_back == "lower_body"
-             replace_message = "Cool!" 
              puts "found match "
                  
       if action_name == "glutes"
-        replace_message = "Cool!" 
-       client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Glutes").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Glutes").sample.url}", attachments: attachments, as_user: true)
+       client.chat_postMessage(channel: channel, text: "No glutes, no glory!\n\n*#{BodyPart.all.where(body_part: "Glutes").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Glutes").sample.url}", attachments: attachments, as_user: true)
      
    elsif action_name == "legs"
-     replace_message = "Cool!" 
-    client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Legs").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Legs").sample.url}", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: channel, text: "When your legs get tired, run with your heart bro!\n\n*#{BodyPart.all.where(body_part: "Legs").sample.workout_name}*\n#{BodyPart.all.where(body_part: "Legs").sample.url}", attachments: attachments, as_user: true)
       
       else
         replace_message = "Try typing 'start workout'"
-        client.chat_postMessage(channel: channel, text: "Let's do this together bro!", as_user: true)
+        client.chat_postMessage(channel: channel, text: "It's all under control! You got this cowboy!", as_user: true)
       end
  
 # ----------
 
   elsif call_back == "workout_type"
-             replace_message = "Cool!" 
              puts "found match "
                  
       if action_name == "hiit"
-        replace_message = "Cool!" 
-       client.chat_postMessage(channel: channel, text: "*#{WorkoutType.all.where(workout_type: "HIIT").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "HIIT").sample.url}", attachments: attachments, as_user: true)
+       client.chat_postMessage(channel: channel, text: "Will it be easy? Nope! Worth it? Absolutely!\n\n*#{WorkoutType.all.where(workout_type: "HIIT").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "HIIT").sample.url}", attachments: attachments, as_user: true)
      
    elsif action_name == "pilates"
-     replace_message = "Cool!" 
-    client.chat_postMessage(channel: channel, text: "*#{WorkoutType.all.where(workout_type: "Pilates").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Pilates").sample.url}", attachments: attachments, as_user: true)
+    client.chat_postMessage(channel: channel, text: "All ya need is love! And Pilates!!\n\n*#{WorkoutType.all.where(workout_type: "Pilates").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Pilates").sample.url}", attachments: attachments, as_user: true)
     
   elsif action_name == "yoga"
-    replace_message = "Cool!" 
-   client.chat_postMessage(channel: channel, text: "*#{WorkoutType.all.where(workout_type: "Yoga").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Yoga").sample.url}", attachments: attachments, as_user: true)
+   client.chat_postMessage(channel: channel, text: "Inhale the future, exhale the past. Piece of cake!\n\n*#{WorkoutType.all.where(workout_type: "Yoga").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Yoga").sample.url}", attachments: attachments, as_user: true)
    
  elsif action_name == "tai_chi"
-   replace_message = "Cool!" 
-  client.chat_postMessage(channel: channel, text: "*#{WorkoutType.all.where(workout_type: "Tai Chi").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Tai Chi").sample.url}", attachments: attachments, as_user: true)
+  client.chat_postMessage(channel: channel, text: "Hey dude! Did ya get your morning cup of tai chi?\n\n*#{WorkoutType.all.where(workout_type: "Tai Chi").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Tai Chi").sample.url}", attachments: attachments, as_user: true)
   
 elsif action_name == "aerobics"
-  replace_message = "Cool!" 
- client.chat_postMessage(channel: channel, text: "*#{WorkoutType.all.where(workout_type: "Aerobics").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Aerobics").sample.url}", attachments: attachments, as_user: true)
+ client.chat_postMessage(channel: channel, text: "Yo cowboy! Good things come to those that sweat!\n\n*#{WorkoutType.all.where(workout_type: "Aerobics").sample.workout_name}*\n#{WorkoutType.all.where(workout_type: "Aerobics").sample.url}", attachments: attachments, as_user: true)
       
       else
         replace_message = "Try typing 'start workout'"

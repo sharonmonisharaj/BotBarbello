@@ -333,13 +333,11 @@ post "/interactive_buttons/" do
         replace_message = "Cool!" 
         workout = BodyPart.all.where( body_part: "Shoulders" )
         random = workout.sample
-       client.chat_postMessage(channel: channel, text: "*#{random.name}*\n#{random.url}", as_user: true)
+       client.chat_postMessage(channel: channel, text: "*#{random.name}*\n#{random.url}", attachments: attachments, as_user: true)
         
       elsif action_name == "chest"
         replace_message = "Cool!" 
-        workout = BodyPart.all.where( body_part: "Chest" )
-        random = workout.sample
-       client.chat_postMessage(channel: channel, text: "*#{random.name}*\n#{random.url}", as_user: true)
+       client.chat_postMessage(channel: channel, text: "*#{BodyPart.all.where(body_part: "Chest").sample(1).first.name}*\n#{BodyPart.all.where(body_part: "Chest").sample(1).first.url}", attachments: attachments, as_user: true)
       
       else
         replace_message = "Try typing 'start workout'"

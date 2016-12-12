@@ -192,13 +192,13 @@ post "/interactive_buttons/" do
         client.chat_postMessage(channel: channel, text: "You chose to workout by muscle group!", attachments: attachments, as_user: true)
 
         
-      elsif action_name == "equipment"
+      elsif callback_id == "equipment"
         replace_message += "Cool!" 
         attachments =  equipment
         client.chat_postMessage(channel: channel, text: "You chose to workout by equipment!", as_user: true)
       
       
-      elsif action_name == "workout_type"
+      elsif callback_id == "workout_type"
         replace_message += "Cool!" 
         attachments =  workout_type
         client.chat_postMessage(channel: channel, text: "You chose to workout by workout type!", as_user: true)
@@ -478,7 +478,7 @@ def intro
    [
         {
             "mrkdwn": true,
-            "text": "I'm BotBarbello, your _fitness buddy_! We're going to have a blast!\n\nHere's the lingo I understand brother -\n\n\nType /inspire to be inspired by a smashing quote from an ultra famous celebrity bodybuilder you probably adore!\n\n\n--------------------\n\n\nType /workout followed by cardio, dumbbell or barbell for a quick workout video belonging to that category.\n\n\n--------------------\n\n\nYou can also ask me for a video on any of the following by simply typing -\nshoulders\nchest\nback\nabs\narms\nglutes\nlegs\n\n\n--------------------\n\n\nIf you want a more streamlined approach to your workout, start here!",
+            "text": "I'm BotBarbello, your fitness buddy! We're going to have a blast!\n\nHere's the lingo I understand brother -\n\n\nType /inspire to be inspired by a smashing quote from an ultra famous celebrity bodybuilder you probably adore!\n\n\n--------------------\n\n\nType /workout followed by cardio, dumbbell or barbell for a quick workout video belonging to that category.\n\n\n--------------------\n\n\nYou can also ask me for a video on any of the following by simply typing -\nshoulders\nchest\nback\nabs\narms\nglutes\nlegs\n\n\n--------------------\n\n\nIf you want a more streamlined approach to your workout, start here!",
             "callback_id": "intro",
             "color": "#3AA3E3",
             "attachment_type": "default",

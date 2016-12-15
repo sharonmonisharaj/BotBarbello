@@ -461,85 +461,85 @@ Tool.delete_all
 
 Tool.create!([
   {
-    equipment: "Dumbbell"
+    equipment: "Dumbbell",
     workout_name: "Dumbbell Biceps Curl",
     url: "https://www.youtube.com/watch?v=ykJmrZ5v0Oo"
   },
 
   {
-    equipment: "Dumbbell"
+    equipment: "Dumbbell",
     workout_name: "Seated Overhead Dumbbell Press",
     url: "https://www.youtube.com/watch?v=b5JzUH8gsOg"
   },
 
   {
-    equipment: "Dumbbell"
+    equipment: "Dumbbell",
     workout_name: "Dumbbell Tricep Extension",
     url: "https://www.youtube.com/watch?v=_gsUck-7M74"
   },
 
   {
-    equipment: "Dumbbell"
+    equipment: "Dumbbell",
     workout_name: "Full-Body Dumbbell Workout",
     url: "https://www.youtube.com/watch?v=l0gDqsSUtWo"
   },
 
   {
-    equipment: "Dumbbell"
+    equipment: "Dumbbell",
     workout_name: "Alternate Dumbbell Curl",
     url: "https://www.youtube.com/watch?v=8d2we4UqOSs"
   },
 
   {
-    equipment: "Dumbbell"
+    equipment: "Dumbbell",
     workout_name: "Hammer Curl",
     url: "https://www.youtube.com/watch?v=TwD-YGVP4Bk"
   },
 
   {
-    equipment: "Dumbbell"
+    equipment: "Dumbbell",
     workout_name: "Concentration Curl",
     url: "https://www.youtube.com/watch?v=0AUGkch3tzc"
   },
 
   {
-    equipment: "Dumbbell"
+    equipment: "Dumbbell",
     workout_name: "Preacher Curl",
     url: "https://www.youtube.com/watch?v=DoCWeUBA0Gs"
   },
 
   {
-    equipment: "Dumbbell"
+    equipment: "Dumbbell",
     workout_name: "Incline Dumbbell Bicep Curl",
     url: "https://www.youtube.com/watch?v=b4jOP-spQW8"
   },
 
   {
-    equipment: "Dumbbell"
+    equipment: "Dumbbell",
     workout_name: "Dumbbell Kick",
     url: "https://www.youtube.com/watch?v=z3sm6YgpJho"
   },
 
   {
-    equipment: "Dumbbell"
+    equipment: "Dumbbell",
     workout_name: "Dumbbell Row",
     url: "https://www.youtube.com/watch?v=-koP10y1qZI"
   },
   
   {
-    equipment: "Barbell"
+    equipment: "Barbell",
     workout_name: "Deep Barbell Back Squat",
     url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
   },
 
   {
-    equipment: "Barbell"
+    equipment: "Barbell",
     workout_name: "Barbell Front Squat",
     url: "https://www.youtube.com/watch?v=tlfahNdNPPI"
   },
 
   {
-    equipment: "Barbell"
+    equipment: "Barbell",
     workout_name: "Deadlift",
     url: "https://www.youtube.com/watch?v=RyJbvWAh6ec"
   },

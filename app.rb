@@ -518,7 +518,7 @@ def respond_to_slack_event json
   #event_to_action client, event 
   
   # Action commands
-  if ["hi", "hey", "hello", "bot"].any? { |w| event.formatted_text.starts_with? w }  
+  if ["hi", "bot", "start"].any? { |w| event.formatted_text.starts_with? w }  
     attachments =  intro 
     client.chat_postMessage(channel: event.channel, text: "*Yo dude! I'm BotBarbello, your fitness buddy!*\nhttp://i61.photobucket.com/albums/h63/sharonmonisharaj/BotBarbello-02_zpsldw6vcre.png~original\n\n*Here's the lingo I understand brother!*\n\n- Type `/inspire` to be inspired by a smashing quote from an ultra famous celebrity bodybuilder you probably adore!\n- Type `/beforeafter` for inspiring before and after photos of famous bodybuilders!\n- Type `/workout` for a quick workout video handpicked by yours truly!\n- Type `help` if you're stuck!\n\n\n", attachments: attachments, as_user: true)
 

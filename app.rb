@@ -346,17 +346,17 @@ post "/workout/"  do
     greeting = ["Hey dude!", "Hey man!", "Hey brother!", "It's great to see you bro!"]
     
      if text.downcase.strip == "dumbbell"
-       random = Tool.all.where(equipment: "Dumbbell").sample.workout_name
+       random = Tool.all.where(equipment: "Dumbbell").sample
        formatted_message = greeting.sample + " Here's your new dumbbell workout video!\n\n" + "*#{random.workout_name}*" + "\n" + random.url
      
      
      elsif text.downcase.strip == "barbell"
-       random = Tool.all.where(equipment: "Barbell").sample.workout_name
+       random = Tool.all.where(equipment: "Stability Ball").sample
        formatted_message = greeting.sample + " Here's your new barbell workout video!\n\n" + "*#{random.workout_name}*" + "\n" + random.url
     
      
      elsif text.downcase.strip == "cardio"
-       random = WorkoutType.all.where(workout_type: "HIIT").sample.workout_name
+       random = WorkoutType.all.where(workout_type: "HIIT").sample
        formatted_message = greeting.sample + " Here's your new cardio workout video!\n\n" + "*#{random.workout_name}*" + "\n" + random.url
   
      else 

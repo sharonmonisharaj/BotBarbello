@@ -289,76 +289,6 @@ BodyPart.create!([{
 
 p "Created #{BodyPart.count} body-part targetted exercises!"
 
-
-# -----------------------------------------------------------------
-
-Tool.delete_all
-
-#MotivationalQuote.reset_autoincrement
-
-Tool.create!([{
-  equipment: "Dumbbells",
-  workout_name: "Lorem ipsum",
-  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
-},
-
-{
-  equipment: "Kettle Bell",
-  workout_name: "Lorem ipsum",
-  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
-},
-
-{
-  equipment: "Barbell",
-  workout_name: "Lorem ipsum",
-  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
-},
-
-{
-  equipment: "Pull Up Bar",
-  workout_name: "Lorem ipsum",
-  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
-},
-
-{
-  equipment: "Rings",
-  workout_name: "Lorem ipsum",
-  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
-},
-
-{
-  equipment: "Jump Rope",
-  workout_name: "Lorem ipsum",
-  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
-},
-
-{
-  equipment: "Plyo-Box",
-  workout_name: "Lorem ipsum",
-  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
-},
-
-{
-  equipment: "Medicine Ball",
-  workout_name: "Lorem ipsum",
-  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
-},
-
-{
-  equipment: "Stability Ball",
-  workout_name: "Lorem ipsum",
-  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
-},
-
-{
-  equipment: "BOSU Ball",
-  workout_name: "Lorem ipsum",
-  url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
-}])
-
-p "Created #{Tool.count} equipment based exercises!"
-
-
 # -----------------------------------------------------------------
 
 WorkoutType.delete_all
@@ -529,7 +459,92 @@ Tool.delete_all
 
 #MotivationalQuote.reset_autoincrement
 
-Tool.create!([{
+Tool.create!([
+  {
+    equipment: "Dumbbell"
+    workout_name: "Dumbbell Biceps Curl",
+    url: "https://www.youtube.com/watch?v=ykJmrZ5v0Oo"
+  },
+
+  {
+    equipment: "Dumbbell"
+    workout_name: "Seated Overhead Dumbbell Press",
+    url: "https://www.youtube.com/watch?v=b5JzUH8gsOg"
+  },
+
+  {
+    equipment: "Dumbbell"
+    workout_name: "Dumbbell Tricep Extension",
+    url: "https://www.youtube.com/watch?v=_gsUck-7M74"
+  },
+
+  {
+    equipment: "Dumbbell"
+    workout_name: "Full-Body Dumbbell Workout",
+    url: "https://www.youtube.com/watch?v=l0gDqsSUtWo"
+  },
+
+  {
+    equipment: "Dumbbell"
+    workout_name: "Alternate Dumbbell Curl",
+    url: "https://www.youtube.com/watch?v=8d2we4UqOSs"
+  },
+
+  {
+    equipment: "Dumbbell"
+    workout_name: "Hammer Curl",
+    url: "https://www.youtube.com/watch?v=TwD-YGVP4Bk"
+  },
+
+  {
+    equipment: "Dumbbell"
+    workout_name: "Concentration Curl",
+    url: "https://www.youtube.com/watch?v=0AUGkch3tzc"
+  },
+
+  {
+    equipment: "Dumbbell"
+    workout_name: "Preacher Curl",
+    url: "https://www.youtube.com/watch?v=DoCWeUBA0Gs"
+  },
+
+  {
+    equipment: "Dumbbell"
+    workout_name: "Incline Dumbbell Bicep Curl",
+    url: "https://www.youtube.com/watch?v=b4jOP-spQW8"
+  },
+
+  {
+    equipment: "Dumbbell"
+    workout_name: "Dumbbell Kick",
+    url: "https://www.youtube.com/watch?v=z3sm6YgpJho"
+  },
+
+  {
+    equipment: "Dumbbell"
+    workout_name: "Dumbbell Row",
+    url: "https://www.youtube.com/watch?v=-koP10y1qZI"
+  },
+  
+  {
+    equipment: "Barbell"
+    workout_name: "Deep Barbell Back Squat",
+    url: "https://www.youtube.com/watch?v=SW_C1A-rejs"
+  },
+
+  {
+    equipment: "Barbell"
+    workout_name: "Barbell Front Squat",
+    url: "https://www.youtube.com/watch?v=tlfahNdNPPI"
+  },
+
+  {
+    equipment: "Barbell"
+    workout_name: "Deadlift",
+    url: "https://www.youtube.com/watch?v=RyJbvWAh6ec"
+  },
+  
+{
   equipment: "Kettle Bell",
   workout_name: "15 Minute Kettlebell Workout Video",
   url: "https://www.youtube.com/watch?v=gcIFAgnOL9E"
@@ -599,6 +614,18 @@ WorkoutType.create!([{
   workout_type: "HIIT",
   workout_name: "20-Min HIIT Workout Boot Camp - High Intensity Training With No Equipment",
   url: "https://www.youtube.com/watch?v=1y0Pqjnoow0"
+},
+
+{
+  workout_type: "HIIT",
+  workout_name: "High Intensity Cardio Workout for Lean Muscle",
+  url: "https://www.youtube.com/watch?v=LkCZPvKLeBM"
+},
+
+{
+  workout_type: "HIIT",
+  workout_name: "33 Min High Intensity Interval Training for Endurance & Total Body Toning",
+  url: "https://www.youtube.com/watch?v=H1GDPNYTpqA"
 },
 
 {

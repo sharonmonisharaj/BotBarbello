@@ -346,18 +346,18 @@ post "/workout/"  do
     greeting = ["Hey dude!", "Hey man!", "Hey brother!", "It's great to see you bro!"]
     
      if text.downcase.strip == "dumbbell"
-       random = DumbbellExercise.all.sample(1).first
-       formatted_message = greeting.sample + " Here's your new dumbbell workout video!\n\n" + "*#{random.name}*" + "\n" + random.dumbbell
+       random = Tool.all.where(equipment: "Dumbbell").sample.workout_name
+       formatted_message = greeting.sample + " Here's your new dumbbell workout video!\n\n" + "*#{random.workout_name}*" + "\n" + random.url
      
      
      elsif text.downcase.strip == "barbell"
-       random = BarbellExercise.all.sample(1).first
-       formatted_message = greeting.sample + " Here's your new barbell workout video!\n\n" + "*#{random.name}*" + "\n" + random.barbell
+       random = Tool.all.where(equipment: "Barbell").sample.workout_name
+       formatted_message = greeting.sample + " Here's your new barbell workout video!\n\n" + "*#{random.workout_name}*" + "\n" + random.url
     
      
      elsif text.downcase.strip == "cardio"
-       random = CardioExercise.all.sample(1).first
-       formatted_message = greeting.sample + " Here's your new cardio workout video!\n\n" + "*#{random.name}*" + "\n" + random.cardio
+       random = WorkoutType.all.where(workout_type: "HIIT").sample.workout_name
+       formatted_message = greeting.sample + " Here's your new cardio workout video!\n\n" + "*#{random.workout_name}*" + "\n" + random.url
   
      else 
        random = BodyPart.all.sample(1).first
